@@ -52,7 +52,7 @@ function layerHTML(m, key) {
 function home() {
   return `<section class="hero"><div class="kicker">Manual interativo</div><h1>Entenda, conheça e execute cada processo</h1>
   <p>Escolha um módulo ou pesquise no topo. Cada módulo tem três camadas: <b>Entender</b> a lógica, <b>Conhecer a tela</b> e <b>Fazer</b> o passo a passo.</p></section>
-  <ol class="mods">${MODULES.map((m, i) => `<li><a class="mcard" style="--c:${m.cor}" href="#/m/${m.id}/entender"><span class="n">Módulo ${i + 1}</span><h3>${m.t}</h3><p>${m.d}</p><span class="lay">${LAYERS.map(l => `<i class="${m[l[2]].length ? 'on' : ''}">${l[1]}</i>`).join('')}</span></a></li>`).join('')}</ol>`;
+  <ol class="mods">${MODULES.map((m, i) => `<li><a class="mcard" style="--c:${m.cor}" href="#/m/${m.id}/entender"><span class="mn">Módulo ${i + 1}</span><h3>${m.t}</h3><p>${m.d}</p><span class="lay">${LAYERS.map(l => `<i class="${m[l[2]].length ? 'on' : ''}">${l[1]}</i>`).join('')}</span></a></li>`).join('')}</ol>`;
 }
 function modulePage(id, layer) {
   const m = MODULES.find(x => x.id === id); if (!m) return home();
@@ -66,7 +66,7 @@ function modulePage(id, layer) {
 function book() {
   printing = true;
   const h = `<div class="bar"><span>Pré-visualização do PDF</span><button onclick="window.print()">Imprimir / Salvar como PDF</button></div>
-  <section class="cover"><div class="kicker">Next01 · Gestão da Locação</div><h1>Manual do sistema</h1><p>Entender · Conhecer a tela · Fazer</p>
+  <section class="cover"><img class="logo" src="img/logo.png" alt="Next01" onerror="this.remove()"><div class="kicker">Next01 · Gestão da Locação</div><h1>Manual do sistema</h1><p>Entender · Conhecer a tela · Fazer</p>
   <ol class="toc">${MODULES.map(m => `<li>${m.t}</li>`).join('')}</ol></section>` +
     MODULES.map(m => `<section class="chap" style="--c:${m.cor}"><h1>${m.t}</h1><p class="d">${m.d}</p>` +
       LAYERS.map(l => `<h2>${l[1]}</h2>${layerHTML(m, l[2])}`).join('') + '</section>').join('');
