@@ -1,5 +1,14 @@
 # Versões do Manual Next01
 
+## v2.13 (zip)
+- Produtos: Menu, Grupo, Subgrupo, Unidade de medida, Tabela de preço, lista de Produtos e cadastro com as abas Dados Gerais, Composição, Preços, Fornecedores e Estoque (19 prints, Entender, Conhecer e Fazer). Removido o texto antigo "O que faz".
+
+## v2.12 (zip)
+- Cadastros: removido o print do filtro Período (pertence a outra tela).
+
+## v2.11 (zip)
+- Versão exibida no manual fixada em 1.0 (rodapé e capa do PDF). A numeração dos zips segue só para controle de importação.
+
 ## v2.10
 - Dashboards: tirado dos Primeiros passos e completo no próprio módulo (Entender, 2 telas com pontos numerados, Fazer). Print do topo sem o nome da empresa.
 
