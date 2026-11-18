@@ -1,5 +1,18 @@
 # Versões do Manual Next01
 
+## v2.3
+- Nova ordem do menu: Quem somos, Treinamento consultivo, Funcionalidade dos menus, Passo a passo por área, Dúvidas frequentes, Contatos, Abra chamados.
+- Passo a passo por área agora tem quadrinhos por área (1º Contato, Comercial, Operacional, Faturamento, RH, Financeiro), igual ao menu. Cada quadrinho abre os guias da área; as sem conteúdo ficam "Em preparação".
+- Menu do manual cabe em uma linha no computador, sem barra de rolagem.
+
+## v2.2
+- Cadastros › Participante completo: lista e pesquisa (período, status, mais filtros, busca), novo cadastro, abas Dados Gerais, Endereço, Entrega e Funcionário, todas com telas reais e pontos numerados.
+- Cadastros › Tipo de participante com a tela e os campos explicados.
+- Sub-itens podem ter várias imagens, com legenda.
+
+## v2.1
+- Projeto simplificado: tudo em um único `index.html` (estilo, scripts e imagens embutidos) + `firebase.json`. Mesmo conteúdo da v2.0.
+
 ## v2.0
 - Nova estrutura com menu próprio: Quem somos (página inicial), Funcionalidade dos menus, Passo a passo por área, Treinamento consultivo, Dúvidas frequentes, Contatos e Abra chamados.
 - Funcionalidade dos menus espelha o menu lateral real do sistema (Início, Módulos, Utilitários, Conta), cada item com Entender / Conhecer a tela / Fazer.
