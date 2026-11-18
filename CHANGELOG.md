@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.9
+- Agenda: Entender, Conhecer as telas (3 prints com pontos numerados) e Fazer.
+
 ## v2.8
 - Página de cada menu: os botões Entender / Conhecer as telas / Fazer ficam dentro do cabeçalho, junto do nome do quadro e na cor do módulo, como na primeira versão.
 - Primeiros passos completo em 3 partes (Login, Escolha da empresa, Dashboards), cada uma com Entender, tela e passo a passo. Entender do Login com o texto sobre usuário, senha, níveis de autorização, usuários Master e auditoria.
