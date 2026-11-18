@@ -1,9 +1,0 @@
-{
-  "hosting": {
-    "public": ".",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "*.md"],
-    "headers": [
-      { "source": "**/*.html", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
-    ]
-  }
-}
