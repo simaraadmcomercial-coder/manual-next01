@@ -8,7 +8,9 @@ Organização: módulos → 3 camadas: **Entender** · **Conhecer a tela** · **
 (Não abra o index.html com duplo clique: módulos JS exigem servidor.)
 
 ## Onde editar o conteúdo
-- `public/js/data.js` – estrutura dos módulos e guias (Comercial, Operacional, Faturamento…).
+- `public/js/menu.js` – itens do menu do sistema e o conteúdo de cada um (Cadastros já preenchido), Quem somos, Dúvidas e Contatos.
+- `public/js/data.js` – guias de Comercial/Operacional/Faturamento (Passo a passo por área) e treinamento consultivo.
+- Prints das telas: `public/img/telas/`; logo: `public/img/logo.png`.
 - `public/js/legacy.js` – conteúdo vindo do esboço v3 (treinamento consultivo, Cadastros).
 - Guia: `{ t:'Título', obj:'Objetivo', steps:[{t:'Passo', s:['frase com **negrito**']}], tips:['…'] }`
 - Imagens das telas: colocar em `public/img/`.
