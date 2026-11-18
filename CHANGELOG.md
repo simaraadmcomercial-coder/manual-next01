@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.14 (zip)
+- Compras: menu, Tipo de compra, Requisição de compra (lista, dados, produtos, totais) e Pedido de compra (lista, dados, produtos, financeiro, totais), com Entender, Conhecer e Fazer.
+
 ## v2.13 (zip)
 - Produtos: Menu, Grupo, Subgrupo, Unidade de medida, Tabela de preço, lista de Produtos e cadastro com as abas Dados Gerais, Composição, Preços, Fornecedores e Estoque (19 prints, Entender, Conhecer e Fazer). Removido o texto antigo "O que faz".
 
