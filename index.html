@@ -104,6 +104,11 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
 @media(max-width:900px){.navr{flex-wrap:nowrap;overflow-x:auto}}
 .seg{margin:8px 0 18px;--c:var(--navy)}.fields{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}.cap{color:var(--mut);font-size:.9rem;font-weight:500;margin-top:6px}
 .chap h3.lay2{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:16px 0 8px}
+.tile .tl{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit}.tile:has(.tl):hover{border-color:var(--red)}
+.tlay{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:10px}.tlay a{font-size:.7rem;padding:4px 11px;border-radius:999px;background:var(--sand);color:var(--mut);text-decoration:none;opacity:.65}.tlay a.on{background:var(--brand);color:#fff;opacity:1}.tlay a:hover{outline:2px solid var(--red)}
+.tiles.cards{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}.mcard .tl h3{font-size:1.3rem;margin:2px 0}.mcard .tl{gap:6px}.mcard.prep{opacity:.82}
+.mcard .tlay a.on{background:var(--c);color:#fff}.mcard .tlay a:hover{outline:2px solid var(--c)}
+.mcard .tl{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink)}.mcard .tl:hover h3{color:var(--c)}.mcard .tlay{gap:5px}.mcard .tlay a{padding:4px 9px;font-size:.67rem;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -113,7 +118,7 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
   <a class="pdf" href="#/imprimir">Versão PDF</a>
 </div><div class="wrap"><nav id="nav" class="navr" aria-label="Seções do manual"></nav></div></header>
 <main id="app" class="wrap"></main>
-<footer class="wrap ver">Manual Next01 · versão 2.5</footer>
+<footer class="wrap ver">Manual Next01 · versão 2.7</footer>
 <script type="module">
 const MODS = [
  {nome:"Comercial", blocks:[
@@ -301,7 +306,7 @@ const LAYERS = [['entender','Entender','ent'],['conhecer','Conhecer a tela','con
 
 // Conteúdo do manual. Para evoluir: preencher CONTENT[id] de cada item do menu.
 // Item: { subs:[{t, path, ent:[texto], nota, img:{src, alt, pins:[[x%, y%, 'Título', 'Explicação']]}, steps:[{t, s:[]}], tips:[]}], feat:[índices de legacy FEATS] }
-const VERSION = '2.5';
+const VERSION = '2.7';
 const SECTIONS = [['quem','Quem somos'],['treino','Treinamento consultivo'],['menus','Funcionalidade dos menus'],['areas','Passo a passo por área'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
 const AREAS_LIST = [
  {id:'recepcao',t:'1º Contato',d:'Recepcionar o cliente, entender a necessidade e apresentar a solução.'},
@@ -914,7 +919,9 @@ const quemBody = () => `<section class="hero"><img class="logo xl" src="${LOGO}"
 <div class="cols3">${QUEM.cards.map(c => `<div class="block"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}</div>
 <h2 class="gh">Três etapas até a órbita</h2><div class="cols3">${QUEM.etapas.map(c => `<div class="block"><span class="kicker">${c[0]}</span><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join('')}</div>
 <div class="cta"><h3>Pronto para decolar</h3><p>Fale com a tripulação. Conte o rumo da sua empresa.</p><a href="#/contatos">Ver contatos</a></div>`;
-const menusBody = () => MENU.map(g => `<h2 class="gh">${g.g}</h2><ul class="tiles">${g.items.map(i => `<li><a class="tile ${CONTENT[i.id] ? '' : 'prep'}" href="#/menus/${i.id}"><h3>${i.t}</h3><p>${i.d}</p>${CONTENT[i.id] ? '' : '<span class="bd">Em preparação</span>'}</a></li>`).join('')}</ul>`).join('');
+const CARDCOR = ['#2347B8', '#00A859', '#1B4F72', '#D62828', '#B8860B', '#5B6785'];
+const cardInfo = (g, k) => g.g === 'Módulos' ? { cor: CARDCOR[k % 6], lab: 'Módulo ' + (k + 1) } : { cor: g.g === 'Início' ? '#CD1D50' : g.g === 'Conta' ? '#B8860B' : '#5B6785', lab: g.g };
+const menusBody = () => MENU.map(g => `<h2 class="gh">${g.g}</h2><ul class="tiles cards">${g.items.map((i, k) => { const on = LAYERS3.map(l => layerHTML(i, l[0]) ? l : null); const any = on.some(Boolean); const ci = cardInfo(g, k); return `<li><div class="mcard ${any ? '' : 'prep'}" style="--c:${ci.cor}"><a class="tl" href="#/menus/${i.id}/entender"><span class="mn">${ci.lab}</span><h3>${i.t}</h3><p>${i.d}</p></a>${any ? `<div class="tlay">${LAYERS3.map((l, n) => `<a class="${on[n] ? 'on' : ''}" href="#/menus/${i.id}/${l[0]}">${l[1]}</a>`).join('')}</div>` : '<span class="bd">Em preparação</span>'}</div></li>`; }).join('')}</ul>`).join('');
 const head = (t, d) => `<div class="mhead"><h1>${t}</h1>${d ? `<p>${d}</p>` : ''}</div>`;
 
 /* ---------- páginas ---------- */

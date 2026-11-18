@@ -1,5 +1,11 @@
 # Versões do Manual Next01
 
+## v2.7
+- Quadrinhos de Funcionalidade dos menus com o visual dos cartões da primeira versão: faixa colorida no topo, "MÓDULO n", título grande, descrição e os botões Entender / Conhecer as telas / Fazer na própria cartela.
+
+## v2.6
+- Quadrinhos de Funcionalidade dos menus mostram, direto no quadrinho, as três camadas (Entender, Conhecer as telas, Fazer). As que têm conteúdo ficam acesas e cada uma abre direto na aba.
+
 ## v2.5
 - Reorganização das abas: Entender = para que serve e por que é importante; Conhecer as telas = print da tela com pontos numerados e legenda; Fazer = somente o passo a passo (checklist).
 
