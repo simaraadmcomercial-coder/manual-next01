@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.10
+- Dashboards: tirado dos Primeiros passos e completo no próprio módulo (Entender, 2 telas com pontos numerados, Fazer). Print do topo sem o nome da empresa.
+
 ## v2.9
 - Agenda: Entender, Conhecer as telas (3 prints com pontos numerados) e Fazer.
 
