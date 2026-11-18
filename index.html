@@ -102,6 +102,8 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
 
 .navr{scrollbar-width:none;flex-wrap:wrap;gap:2px 4px}.navr::-webkit-scrollbar{display:none}.navr{gap:2px}.navr a{padding:6px 9px;font-size:.82rem}
 @media(max-width:900px){.navr{flex-wrap:nowrap;overflow-x:auto}}
+.seg{margin:8px 0 18px;--c:var(--navy)}.fields{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}.cap{color:var(--mut);font-size:.9rem;font-weight:500;margin-top:6px}
+.chap h3.lay2{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:16px 0 8px}
 </style>
 </head>
 <body>
@@ -111,7 +113,7 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
   <a class="pdf" href="#/imprimir">Versão PDF</a>
 </div><div class="wrap"><nav id="nav" class="navr" aria-label="Seções do manual"></nav></div></header>
 <main id="app" class="wrap"></main>
-<footer class="wrap ver">Manual Next01 · versão 2.3</footer>
+<footer class="wrap ver">Manual Next01 · versão 2.5</footer>
 <script type="module">
 const MODS = [
  {nome:"Comercial", blocks:[
@@ -299,7 +301,7 @@ const LAYERS = [['entender','Entender','ent'],['conhecer','Conhecer a tela','con
 
 // Conteúdo do manual. Para evoluir: preencher CONTENT[id] de cada item do menu.
 // Item: { subs:[{t, path, ent:[texto], nota, img:{src, alt, pins:[[x%, y%, 'Título', 'Explicação']]}, steps:[{t, s:[]}], tips:[]}], feat:[índices de legacy FEATS] }
-const VERSION = '2.3';
+const VERSION = '2.5';
 const SECTIONS = [['quem','Quem somos'],['treino','Treinamento consultivo'],['menus','Funcionalidade dos menus'],['areas','Passo a passo por área'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
 const AREAS_LIST = [
  {id:'recepcao',t:'1º Contato',d:'Recepcionar o cliente, entender a necessidade e apresentar a solução.'},
@@ -870,7 +872,7 @@ function guide(g, id) {
   }).join('');
   const terms = g.terms ? `<dl class="terms">${g.terms.map(t => `<div><dt>${t[0]}</dt><dd>${t[1]}</dd></div>`).join('')}</dl>` : '';
   const tips = g.tips ? `<div class="tips"><b>Boa prática e pontos de atenção</b><ul>${li(g.tips)}</ul></div>` : '';
-  return `<section class="guide chunk"><h4>${g.t}</h4>${g.obj ? `<p class="obj">${g.obj}</p>` : ''}${terms}<ol class="steps">${steps}</ol>${tips}<div class="shot">Espaço reservado para as telas deste passo a passo</div></section>`;
+  return `<section class="guide chunk"><h4>${g.t}</h4>${g.obj ? `<p class="obj">${g.obj}</p>` : ''}${terms}<ol class="steps">${steps}</ol>${tips}${g.noShot ? '' : '<div class="shot">Espaço reservado para as telas deste passo a passo</div>'}</section>`;
 }
 function feature(f) {
   const gs = (f.man || []).map(i => guide(MAN[i], `m${i}`)).join('');
@@ -885,7 +887,20 @@ const empty = '<p class="empty">Conteúdo em preparação.</p>';
 const tela = m => `<figure class="tela"><div class="imgw"><img src="${IMGS[m.src]}" alt="${m.alt || ''}">${(m.pins || []).map((p, i) => `<button class="pin" style="left:${p[0]}%;top:${p[1]}%" data-p="${i}" aria-label="Ponto ${i + 1}">${i + 1}</button>`).join('')}</div>${m.cap ? `<figcaption>${m.cap}</figcaption>` : ''}${m.pins ? `<ol class="legend">${m.pins.map((p, i) => `<li data-p="${i}"><b>${p[2]}.</b> ${p[3]}</li>`).join('')}</ol>` : ''}</figure>`;
 const sub = (s, id) => `<section class="sub chunk"><h3>${s.t}</h3>${s.path ? `<p class="path">${s.path}</p>` : ''}${s.ent ? `<h4 class="lay">Entender</h4>${s.ent.map(x => `<p>${fmt(x)}</p>`).join('')}` : ''}${s.nota ? `<div class="callout"><p>${fmt(s.nota)}</p></div>` : ''}${(s.imgs || (s.img ? [s.img] : [])).length ? `<h4 class="lay">Conhecer a tela</h4>${(s.imgs || [s.img]).map(tela).join('')}` : ''}${s.steps ? `<h4 class="lay">Fazer</h4>${guide({ t: 'Passo a passo', steps: s.steps, tips: s.tips }, id)}` : ''}</section>`;
 const items = () => MENU.flatMap(g => g.items);
-const itemBody = i => { const c = CONTENT[i.id]; return c ? (c.subs || []).map((s, k) => sub(s, `${i.id}${k}`)).join('') + (c.feat || []).map(n => feature(FEATS[n])).join('') : empty; };
+const LAYERS3 = [['entender', 'Entender'], ['conhecer', 'Conhecer as telas'], ['fazer', 'Fazer']];
+const picsOf = s => s.imgs || (s.img ? [s.img] : []);
+const subHead = s => `<h3>${s.t}</h3>${s.path ? `<p class="path">${s.path}</p>` : ''}`;
+const subLayer = (s, id, layer) => {
+  if (layer === 'entender') return s.ent || s.nota ? `<section class="sub chunk">${subHead(s)}${(s.ent || []).map(x => `<p>${fmt(x)}</p>`).join('')}${s.nota ? `<div class="callout"><p>${fmt(s.nota)}</p></div>` : ''}</section>` : '';
+  if (layer === 'conhecer') { const ims = picsOf(s).map(tela).join(''); return ims ? `<section class="sub chunk">${subHead(s)}${ims}</section>` : ''; }
+  return s.steps ? `<section class="sub chunk">${subHead(s)}${guide({ t: 'Passo a passo', steps: s.steps, tips: s.tips, noShot: true }, id)}</section>` : '';
+};
+const featLayer = (f, layer) => layer === 'entender' ? `<section class="sub chunk"><h3>${f.n} · ${f.t}</h3><div class="fgrid"><div class="fcard"><h4>Por que existe</h4><p>${fmt(f.por)}</p></div>${f.con ? `<div class="fcard"><h4>Conexão com outras áreas</h4><p>${f.con}</p></div>` : ''}</div></section>`
+  : layer === 'conhecer' ? `<section class="sub chunk"><h3>${f.n} · ${f.t}</h3><div class="fcard"><h4>O que faz</h4><p>${fmt(f.faz)}</p></div><div class="how"><h4>Como utilizar</h4><ol>${li(f.como)}</ol></div></section>`
+  : (f.man || []).length ? `<section class="sub chunk"><h3>${f.n} · ${f.t}</h3>${f.man.map(i => guide(MAN[i], `m${i}`)).join('')}</section>` : '';
+const layerHTML = (i, layer) => { const c = CONTENT[i.id]; return c ? (c.subs || []).map((s, n) => subLayer(s, `${i.id}${n}`, layer)).join('') + (c.feat || []).map(n => featLayer(FEATS[n], layer)).join('') : ''; };
+const itemBody = (i, layer) => layerHTML(i, layer) || empty;
+const itemFull = i => LAYERS3.map(l => { const h = layerHTML(i, l[0]); return h ? `<h3 class="lay2">${l[1]}</h3>${h}` : ''; }).join('');
 const guidesOf = id => (MODULES.find(m => m.id === id) || { faz: [] }).faz;
 const areaBody = x => guidesOf(x.id).map((g, i) => guide(g, `${x.id}g${i}`)).join('') || empty;
 const areasTiles = () => `<ul class="tiles">${AREAS_LIST.map(x => `<li><a class="tile ${guidesOf(x.id).length ? '' : 'prep'}" href="#/areas/${x.id}"><h3>${x.t}</h3><p>${x.d}</p>${guidesOf(x.id).length ? '' : '<span class="bd">Em preparação</span>'}</a></li>`).join('')}</ul>`;
@@ -903,8 +918,8 @@ const menusBody = () => MENU.map(g => `<h2 class="gh">${g.g}</h2><ul class="tile
 const head = (t, d) => `<div class="mhead"><h1>${t}</h1>${d ? `<p>${d}</p>` : ''}</div>`;
 
 /* ---------- páginas ---------- */
-function page(a, b) {
-  if (a === 'menus') { const i = items().find(x => x.id === b); return i ? `<a class="back" href="#/menus">← Funcionalidade dos menus</a>${head(i.t, i.d)}<div class="layer">${itemBody(i)}</div>` : head('Funcionalidade dos menus', 'Os módulos do sistema, na mesma ordem do menu lateral. Cada um explica o que é, mostra a tela e ensina a fazer.') + menusBody(); }
+function page(a, b, c) {
+  if (a === 'menus') { const i = items().find(x => x.id === b); if (!i) return head('Funcionalidade dos menus', 'Os módulos do sistema, na mesma ordem do menu lateral. Cada um explica o que é, mostra a tela e ensina a fazer.') + menusBody(); const Lr = LAYERS3.find(l => l[0] === c) || LAYERS3[0]; return `<a class="back" href="#/menus">← Funcionalidade dos menus</a>${head(i.t, i.d)}<nav class="seg">${LAYERS3.map(l => `<a href="#/menus/${i.id}/${l[0]}" aria-current="${l[0] === Lr[0]}">${l[1]}</a>`).join('')}</nav><div class="layer">${itemBody(i, Lr[0])}</div>`; }
   if (a === 'areas') { const x = AREAS_LIST.find(z => z.id === b); return x ? `<a class="back" href="#/areas">← Passo a passo por área</a>${head(x.t, x.d)}<div class="layer">${areaBody(x)}</div>` : head('Passo a passo por área', 'Escolha a área para ver o passo a passo de cada rotina.') + areasTiles(); }
   if (a === 'treino') return head('Treinamento consultivo', 'A lógica e a conexão entre os módulos.') + `<div class="layer">${treinoBody()}</div>`;
   if (a === 'faq') return head('Dúvidas frequentes') + `<div class="layer">${faqBody()}</div>`;
@@ -918,7 +933,7 @@ function book() {
   const h = `<div class="bar"><span>Pré-visualização do PDF</span><button onclick="window.print()">Imprimir / Salvar como PDF</button></div>
   <section class="cover"><img class="logo xl" src="${LOGO}" alt="Next01"><div class="kicker">Next01 Software</div><h1>Manual do sistema</h1><p>Versão ${VERSION}</p><ol class="toc">${SECTIONS.map(s => `<li>${s[1]}</li>`).join('')}</ol></section>`
     + sec('Quem somos', quemBody()) + sec('Treinamento consultivo', treinoBody())
-    + sec('Funcionalidade dos menus', items().filter(i => CONTENT[i.id]).map(i => `<h2>${i.t}</h2><p class="d">${i.d}</p>${itemBody(i)}`).join(''))
+    + sec('Funcionalidade dos menus', items().filter(i => CONTENT[i.id]).map(i => `<h2>${i.t}</h2><p class="d">${i.d}</p>${itemFull(i)}`).join(''))
     + sec('Passo a passo por área', areasBody())
     + sec('Dúvidas frequentes', faqBody()) + sec('Contatos', contatosBody()) + sec('Abra chamados', chamadosBody());
   printing = false; return h;
@@ -929,7 +944,7 @@ let idx = null;
 const flat = (o, a = []) => (o && typeof o === 'object' ? Object.values(o).forEach(v => flat(v, a)) : typeof o === 'string' && a.push(o), a);
 function buildIdx() {
   idx = [];
-  MENU.forEach(g => g.items.forEach(i => { const c = CONTENT[i.id] || {}; idx.push({ href: `#/menus/${i.id}`, tag: 'Funcionalidade dos menus · ' + g.g, title: i.t, text: i.d + ' ' + flat([c, (c.feat || []).map(n => [FEATS[n], (FEATS[n].man || []).map(k => MAN[k])])]).join(' ') }); }));
+  MENU.forEach(g => g.items.forEach(i => LAYERS3.forEach(l => { const h = layerHTML(i, l[0]); if (h || l[0] === 'entender') idx.push({ href: `#/menus/${i.id}/${l[0]}`, tag: `Funcionalidade dos menus · ${l[1]}`, title: i.t, text: (l[0] === 'entender' ? i.d + ' ' : '') + h.replace(/<[^>]+>/g, ' ') }); })));
   AREAS_LIST.forEach(x => guidesOf(x.id).forEach(g => idx.push({ href: `#/areas/${x.id}`, tag: 'Passo a passo por área · ' + x.t, title: g.t, text: flat(g).join(' ') })));
   MODULES.filter(m => m.ent.length).forEach(m => idx.push({ href: '#/treino', tag: 'Treinamento consultivo', title: m.t, text: flat(m.ent).join(' ') }));
   FAQ.forEach(q => idx.push({ href: '#/faq', tag: 'Dúvidas frequentes', title: q[0], text: q[1] }));
@@ -947,9 +962,9 @@ function search(q) {
 $('#nav').innerHTML = SECTIONS.map(s => `<a href="#/${s[0]}">${s[1]}</a>`).join('');
 $('.ver').textContent = 'Manual Next01 · versão ' + VERSION;
 function route() {
-  const [, a, b] = location.hash.split('/');
+  const [, a, b, c] = location.hash.split('/');
   document.body.classList.toggle('print', a === 'imprimir');
-  app.innerHTML = a === 'imprimir' ? book() : page(a, b);
+  app.innerHTML = a === 'imprimir' ? book() : page(a, b, c);
   document.querySelectorAll('#nav a').forEach(l => l.setAttribute('aria-current', String(l.getAttribute('href') === `#/${a || 'quem'}`)));
   if (a !== 'imprimir') window.scrollTo(0, 0);
   if (pendingQ) {

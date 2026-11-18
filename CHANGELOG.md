@@ -1,5 +1,13 @@
 # Versões do Manual Next01
 
+## v2.5
+- Reorganização das abas: Entender = para que serve e por que é importante; Conhecer as telas = print da tela com pontos numerados e legenda; Fazer = somente o passo a passo (checklist).
+
+## v2.4
+- Cada item de Funcionalidade dos menus ganhou abas: Entender (para que serve no sistema) › Conhecer as telas › Fazer.
+- As imagens das telas, com pontos numerados, ficam em Fazer, no espaço do passo a passo. Conhecer as telas traz a explicação de cada campo em texto.
+- Busca leva direto à aba onde o termo aparece. PDF mostra as três partes de cada menu.
+
 ## v2.3
 - Nova ordem do menu: Quem somos, Treinamento consultivo, Funcionalidade dos menus, Passo a passo por área, Dúvidas frequentes, Contatos, Abra chamados.
 - Passo a passo por área agora tem quadrinhos por área (1º Contato, Comercial, Operacional, Faturamento, RH, Financeiro), igual ao menu. Cada quadrinho abre os guias da área; as sem conteúdo ficam "Em preparação".
