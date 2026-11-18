@@ -1,5 +1,0 @@
-services:
-  - type: web
-    name: manual-next01
-    runtime: static
-    staticPublishPath: ./public
