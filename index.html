@@ -109,6 +109,7 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
 .tiles.cards{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}.mcard .tl h3{font-size:1.3rem;margin:2px 0}.mcard .tl{gap:6px}.mcard.prep{opacity:.82}
 .mcard .tlay a.on{background:var(--c);color:#fff}.mcard .tlay a:hover{outline:2px solid var(--c)}
 .mcard .tl{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink)}.mcard .tl:hover h3{color:var(--c)}.mcard .tlay{gap:5px}.mcard .tlay a{padding:4px 9px;font-size:.67rem;white-space:nowrap}
+.mhead.col{border-left-color:var(--c)}.mhead .seg{--c:inherit;margin:14px 0 4px}.mhead .seg a{padding:9px 18px;font-size:.95rem}.mhead+.layer{margin-top:18px}
 </style>
 </head>
 <body>
@@ -118,7 +119,7 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
   <a class="pdf" href="#/imprimir">Versão PDF</a>
 </div><div class="wrap"><nav id="nav" class="navr" aria-label="Seções do manual"></nav></div></header>
 <main id="app" class="wrap"></main>
-<footer class="wrap ver">Manual Next01 · versão 2.7</footer>
+<footer class="wrap ver">Manual Next01 · versão 2.8</footer>
 <script type="module">
 const MODS = [
  {nome:"Comercial", blocks:[
@@ -306,7 +307,7 @@ const LAYERS = [['entender','Entender','ent'],['conhecer','Conhecer a tela','con
 
 // Conteúdo do manual. Para evoluir: preencher CONTENT[id] de cada item do menu.
 // Item: { subs:[{t, path, ent:[texto], nota, img:{src, alt, pins:[[x%, y%, 'Título', 'Explicação']]}, steps:[{t, s:[]}], tips:[]}], feat:[índices de legacy FEATS] }
-const VERSION = '2.7';
+const VERSION = '2.8';
 const SECTIONS = [['quem','Quem somos'],['treino','Treinamento consultivo'],['menus','Funcionalidade dos menus'],['areas','Passo a passo por área'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
 const AREAS_LIST = [
  {id:'recepcao',t:'1º Contato',d:'Recepcionar o cliente, entender a necessidade e apresentar a solução.'},
@@ -348,11 +349,11 @@ const MENU = [
 const dash = 'Ao clicar em **Dashboards**, aparecem os módulos de visualização escolhidos no cadastro do usuário. Quando o gestor cria o seu usuário, ele escolhe quais áreas do dashboard são importantes para você ver primeiro.';
 const CONTENT = {
  primeiros:{ subs:[
-  {t:'1. Entre com seu login',ent:['Com o login e a senha em mãos, preencha o **e-mail** e a **senha** e clique em **Entrar**.'],img:{src:'login.png',alt:'Tela de login'}},
-  {t:'2. Escolha a empresa',ent:['Escolha o CNPJ em que vai realizar a atividade do momento (caso tenha mais de um) e clique em continuar.'],img:{src:'empresa.png',alt:'Escolha da empresa'}},
-  {t:'3. Dashboards',ent:[dash],img:{src:'dashboard.png',alt:'Menu lateral com Dashboards'}}]},
- dashboards:{ subs:[{t:'Dashboards',ent:[dash],img:{src:'dashboard.png',alt:'Menu lateral com Dashboards'}}]},
- trocar:{ subs:[{t:'Escolher a empresa',ent:['Seleciona a base de trabalho (CNPJ) para continuar. Busque por nome, razão social ou CNPJ.'],img:{src:'empresa.png',alt:'Escolha da empresa'}}]},
+  {t:'1. Login',path:'Com seu usuário e senha em mãos',ent:['Cada usuário recebe o seu **usuário e senha**, bem como o **link de acesso** ao sistema.','Essa senha serve para navegar pelos módulos do sistema de acordo com o **nível de autorizações** que você receber da sua gestão.','Apenas usuários **Master** têm permissões de alterações importantes, que podem influenciar nos processos.','Cada alteração feita no sistema fica gravada, com a sua ação e o histórico, para auditoria sistêmica.'],img:{src:'login.png',alt:'Tela de login'},steps:[{t:'Entrar no sistema',s:['Com o login e a senha em mãos, preencha o **e-mail** e a **senha** e clique em **Entrar**.','Se esqueceu a senha, clique em **Esqueceu a senha? Fale conosco**.']}]},
+  {t:'2. Escolha da empresa',ent:['Se a sua conta atende mais de uma empresa, você escolhe em qual CNPJ vai trabalhar naquele momento.'],img:{src:'empresa.png',alt:'Escolha da empresa'},steps:[{t:'Escolher a empresa',s:['Escolha o CNPJ em que vai realizar a atividade do momento, caso tenha mais de um, e clique em **Continuar**.','Para localizar, busque por nome, razão social ou CNPJ.']}]},
+  {t:'3. Dashboards',ent:[dash],img:{src:'dashboard.png',alt:'Menu lateral com Dashboards'},steps:[{t:'Abrir os dashboards',s:['Clique em **Dashboards** no menu lateral.','Aparecem os módulos de visualização escolhidos no cadastro do seu usuário.']}]}]},
+ dashboards:{ subs:[{t:'Dashboards',ent:[dash],img:{src:'dashboard.png',alt:'Menu lateral com Dashboards'},steps:[{t:'Abrir os dashboards',s:['Clique em **Dashboards** no menu lateral.','Aparecem os módulos de visualização escolhidos no cadastro do seu usuário.']}]}]},
+ trocar:{ subs:[{t:'Escolher a empresa',ent:['Seleciona a base de trabalho (CNPJ) para continuar. Busque por nome, razão social ou CNPJ.'],img:{src:'empresa.png',alt:'Escolha da empresa'},steps:[{t:'Trocar de empresa',s:['No menu lateral, no grupo **Conta**, clique em **Trocar empresa**.','Busque por nome, razão social ou CNPJ e selecione a empresa.']}]}]},
  cadastros:{
  "subs": [
   {
@@ -926,7 +927,7 @@ const head = (t, d) => `<div class="mhead"><h1>${t}</h1>${d ? `<p>${d}</p>` : ''
 
 /* ---------- páginas ---------- */
 function page(a, b, c) {
-  if (a === 'menus') { const i = items().find(x => x.id === b); if (!i) return head('Funcionalidade dos menus', 'Os módulos do sistema, na mesma ordem do menu lateral. Cada um explica o que é, mostra a tela e ensina a fazer.') + menusBody(); const Lr = LAYERS3.find(l => l[0] === c) || LAYERS3[0]; return `<a class="back" href="#/menus">← Funcionalidade dos menus</a>${head(i.t, i.d)}<nav class="seg">${LAYERS3.map(l => `<a href="#/menus/${i.id}/${l[0]}" aria-current="${l[0] === Lr[0]}">${l[1]}</a>`).join('')}</nav><div class="layer">${itemBody(i, Lr[0])}</div>`; }
+  if (a === 'menus') { const i = items().find(x => x.id === b); if (!i) return head('Funcionalidade dos menus', 'Os módulos do sistema, na mesma ordem do menu lateral. Cada um explica o que é, mostra a tela e ensina a fazer.') + menusBody(); const Lr = LAYERS3.find(l => l[0] === c) || LAYERS3[0]; const gi = MENU.find(g => g.items.includes(i)); const cor = cardInfo(gi, gi.items.indexOf(i)).cor; return `<a class="back" href="#/menus">← Funcionalidade dos menus</a><div class="mhead col" style="--c:${cor}"><h1>${i.t}</h1><p>${i.d}</p><nav class="seg">${LAYERS3.map(l => `<a href="#/menus/${i.id}/${l[0]}" aria-current="${l[0] === Lr[0]}">${l[1]}</a>`).join('')}</nav></div><div class="layer">${itemBody(i, Lr[0])}</div>`; }
   if (a === 'areas') { const x = AREAS_LIST.find(z => z.id === b); return x ? `<a class="back" href="#/areas">← Passo a passo por área</a>${head(x.t, x.d)}<div class="layer">${areaBody(x)}</div>` : head('Passo a passo por área', 'Escolha a área para ver o passo a passo de cada rotina.') + areasTiles(); }
   if (a === 'treino') return head('Treinamento consultivo', 'A lógica e a conexão entre os módulos.') + `<div class="layer">${treinoBody()}</div>`;
   if (a === 'faq') return head('Dúvidas frequentes') + `<div class="layer">${faqBody()}</div>`;

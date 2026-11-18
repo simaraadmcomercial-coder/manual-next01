@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.8
+- Página de cada menu: os botões Entender / Conhecer as telas / Fazer ficam dentro do cabeçalho, junto do nome do quadro e na cor do módulo, como na primeira versão.
+- Primeiros passos completo em 3 partes (Login, Escolha da empresa, Dashboards), cada uma com Entender, tela e passo a passo. Entender do Login com o texto sobre usuário, senha, níveis de autorização, usuários Master e auditoria.
+
 ## v2.7
 - Quadrinhos de Funcionalidade dos menus com o visual dos cartões da primeira versão: faixa colorida no topo, "MÓDULO n", título grande, descrição e os botões Entender / Conhecer as telas / Fazer na própria cartela.
 
