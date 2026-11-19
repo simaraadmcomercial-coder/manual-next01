@@ -123,6 +123,49 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
 <main id="app" class="wrap"></main>
 <footer class="wrap ver">Manual Next01 · versão 2.10</footer>
 <script type="module">
+const MODS = [
+ {nome:"Comercial", blocks:[
+  {kicker:"Início do processo", title:"Tudo começa no Comercial",
+   flow:["Cliente","Proposta","Aprovação","Contrato"], lead:"A qualidade das informações comerciais influencia as próximas etapas.",
+   callout:[
+    "O preenchimento completo do contrato é fundamental para garantir que todas as áreas tenham acesso às informações necessárias para dar continuidade ao processo.",
+    "Cada informação registrada no Comercial orienta a programação da Operação, permite o acompanhamento correto das atividades e contribui para que o Faturamento e o Financeiro funcionem adequadamente.",
+    "Um contrato bem preenchido evita retrabalho, reduz falhas de comunicação e garante a integração entre as etapas.",
+    "O que não é registrado corretamente no sistema pode comprometer as etapas seguintes."]}
+ ]},
+ {nome:"Operacional", blocks:[
+  {kicker:"Movimentação operacional", title:"O contrato movimenta a Operação",
+   flow:["Programação","Ordem de Serviço","Execução","Registro"],
+   callout:["O que foi contratado precisa chegar corretamente à equipe operacional."]},
+  {kicker:"Execução rastreável", title:"Operação — o fluxo da O.S.",
+   flow:["Gerar","Conferir","Distribuir","Executar","Registrar","Fechar"], hi:5,
+   details:[["Origem","Contrato ou O.S. avulsa"],["Conferência","Produtos, quantidades, rotas e capacidade do veículo"],["Apontamento","Apontar o resultado da operação do dia programado."]],
+   rules:["A instalação deve ser registrada por Ordem de Serviço.","A execução precisa ser apontada no sistema.","O registro da OS alimenta o andamento do contrato e as etapas seguintes."]}
+ ]},
+ {nome:"Faturamento", blocks:[
+  {kicker:"Registros para faturar", title:"A execução gera informações para o Faturamento",
+   flow:["Conferência","Medição","Análise","Liberação"], hi:3,
+   lead:"O faturamento depende dos registros e critérios aplicáveis ao contrato."},
+  {kicker:"Da execução à cobrança", title:"Faturamento — conferir antes de transmitir",
+   flow:["Conferência / análise de faturamento","Fechamento de medições","Fatura de Locação e NFS-e","Financeiro + boleto","Envio ao cliente"], hi:2,
+   cols:[
+    {h:"Análise de faturamento", items:[
+      "A tela de análise identifica contratos aptos ao faturamento.","Considera o período selecionado.","O contrato precisa ter as informações de instalação registradas.","Apresenta a última nota emitida e o status do faturamento.","A análise é dinâmica: ao alterar o período, os contratos podem mudar."]},
+    {h:"Gestão de Medição", badge:"Nova funcionalidade", items:[
+      "Gerar medições por período e cliente, ou para todos os clientes.","Conferir os contratos e valores apresentados.","Gerar o PDF da medição e enviar ao cliente pelo e-mail do sistema.","O cliente pode aprovar ou rejeitar pelo link recebido.","Sem resposta em dois dias corridos, a medição é liberada automaticamente.","Então é possível voltar à tela de Análise de faturamento e realizar a emissão da fatura/NFS-e."]}
+   ]}
+ ]},
+ {nome:"Financeiro", blocks:[
+  {kicker:"Acompanhamento do resultado", title:"O Financeiro acompanha o resultado",
+   chips:["Receitas","Despesas","Títulos","Vencimentos","Recebimentos"],
+   lead:"O financeiro precisa refletir corretamente os acontecimentos comerciais e operacionais."},
+  {kicker:"Gestão integrada", title:"Financeiro — reflexo das operações, não uma ilha",
+   flow:["Contratos","Operacional","Faturamento","Contas a receber"], hi:3,
+   lead:"O financeiro consolida e acompanha as informações geradas pelos contratos, pela operação e pelo faturamento.",
+   quote:"“Ele não gera o resultado: ele reflete o que cada etapa registrou.”"}
+ ]}
+];
+
 const MAN = [
  {area:"Cadastros", t:"Cadastro de empresa / participantes",
   obj:"Cadastrar novos clientes, fornecedores e parceiros no sistema com preenchimento automático de dados cadastrais a partir do CNPJ, garantindo agilidade e evitando erros de digitação.",
@@ -211,7 +254,7 @@ const FEATS = [
 
 // Estrutura do manual: módulos → 3 camadas (ent = Entender, con = Conhecer a tela, faz = Fazer).
 // Para adicionar conteúdo, preencha os arrays abaixo. Cada guia: {t, obj, steps:[{t, s:[frases]}], tips:[]}
-const ent = () => [];
+const ent = n => (MODS.find(m => m.nome === n) || {}).blocks || [];
 
 const MODULES = [
   { id:'cadastros', t:'Cadastros', cor:'#01135D', d:'Participantes, produtos, regras fiscais, financeiro, estoque e frota.', ent:[], con:FEATS, faz:[] },
@@ -267,7 +310,7 @@ const LAYERS = [['entender','Entender','ent'],['conhecer','Conhecer a tela','con
 // Conteúdo do manual. Para evoluir: preencher CONTENT[id] de cada item do menu.
 // Item: { subs:[{t, path, ent:[texto], nota, img:{src, alt, pins:[[x%, y%, 'Título', 'Explicação']]}, steps:[{t, s:[]}], tips:[]}], feat:[índices de legacy FEATS] }
 const VERSION = '1.0';
-const SECTIONS = [['quem','Quem somos'],['menus','Funcionalidade dos menus'],['areas','Rotina de Trabalho dentro do Sistema'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
+const SECTIONS = [['quem','Quem somos'],['treino','Treinamento consultivo'],['menus','Funcionalidade dos menus'],['areas','Rotina de Trabalho dentro do Sistema'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
 const AREAS_LIST = [
  {id:'comercial',t:'Comercial',d:'Proposta, contrato, assinatura e programação.'},
  {id:'operacional',t:'Operacional',d:'Análise de O.S., equipe e acompanhamento da execução.'},
@@ -839,6 +882,7 @@ const primeiroBody = () => {
 const comTiles = () => `<ul class="tiles cards">${COMERCIAL.map(x => { const ok = !!ROTINAS[x.id]; return `<li><div class="mcard ${ok ? '' : 'prep'}" style="--c:${COMCOR[x.id]}"><a class="tl" href="#/areas/comercial/${x.id}"><span class="mn">Rotina</span><h3>${x.t}</h3><p>${x.d}</p></a>${ok ? '' : '<span class="bd">Em preparação</span>'}</div></li>`; }).join('')}</ul>`;
 const comHub = () => `<ul class="tiles cards"><li><div class="mcard" style="--c:${COMCOR.primeiro}"><a class="tl" href="#/areas/comercial/primeiro"><span class="mn">Comece por aqui</span><h3>1º Contato</h3><p>Por onde começa a rotina: o que você já tem em mãos e qual caminho seguir.</p></a></div></li></ul><h2 class="gh">Rotinas por tipo de contrato</h2>` + comTiles();
 const comPrint = () => `<h3 class="lay2">1º Contato</h3>${primeiroBody().replace(/<h2 class="gh">[\s\S]*$/, '')}` + COMERCIAL.filter(x => ROTINAS[x.id]).map(x => `<h3 class="lay2">${x.t}</h3>${rotinaBody(x.id)}`).join('');
+const TREINO = { intro:'Todo o sistema parte do cadastro. Um dado errado na base se repete em orçamento, contrato, nota fiscal e cobrança.', corrige:'Por isso, preencher cada campo com atenção não é burocracia: é o que mantém o fluxo inteiro funcionando.' };
 const FAQ = [
  ['Pesquisei o CPF/CNPJ e os dados não carregaram. E agora?','Significa que há alguma restrição na Receita, por isso não carrega automaticamente. Com os dados em mãos, prossiga com o cadastro normalmente.'],
  ['O que é obrigatório para emitir nota fiscal eletrônica?','Nome/Razão Social, Tipo de Pessoa, CPF/CNPJ, endereço completo (CEP, endereço, número, bairro, cidade, estado) e pelo menos um e-mail para NF-e.'],
@@ -913,6 +957,7 @@ const areaBody = x => x.id === 'comercial' ? comHub() : guidesOf(x.id).map((g, i
 const hasArea = x => x.id === 'comercial' || guidesOf(x.id).length;
 const areasTiles = () => `<ul class="tiles">${AREAS_LIST.map(x => `<li><a class="tile ${hasArea(x) ? '' : 'prep'}" href="#/areas/${x.id}"><h3>${x.t}</h3><p>${x.d}</p>${hasArea(x) ? '' : '<span class="bd">Em preparação</span>'}</a></li>`).join('')}</ul>`;
 const areasBody = () => AREAS_LIST.filter(hasArea).map(x => `<section class="area"><h2>${x.t}</h2><p class="d">${x.d}</p>${x.id === 'comercial' ? comPrint() : areaBody(x)}</section>`).join('');
+const treinoBody = () => block({ kicker: 'Conscientização', title: 'Por que preencher corretamente', flow: ['Cadastro', 'Comercial', 'Faturamento', 'Financeiro'], hi: 0, lead: TREINO.intro, callout: [TREINO.corrige] }) + MODULES.filter(m => m.ent.length).map(m => `<h2>${m.t}</h2>${m.ent.map(block).join('')}`).join('');
 const faqBody = () => FAQ.map(q => `<details class="m chunk" ${printing ? 'open' : ''}><summary>${q[0]}</summary><div class="body"><p>${fmt(q[1])}</p></div></details>`).join('');
 const C = CONTATOS;
 const contatosBody = () => `<div class="block"><h3>${C.nome}</h3><p>${C.end}</p><p><a href="mailto:${C.email}">${C.email}</a></p><p>${C.tels.map(t => `<a href="tel:${t[1]}">${t[0]}</a>`).join(' · ')}</p></div>`;
@@ -931,6 +976,7 @@ function page(a, b, c) {
   if (a === 'menus') { const i = items().find(x => x.id === b); if (!i) return head('Funcionalidade dos menus', 'Os módulos do sistema, na mesma ordem do menu lateral. Cada um explica o que é, mostra a tela e ensina a fazer.') + menusBody(); const Lr = LAYERS3.find(l => l[0] === c) || LAYERS3[0]; const gi = MENU.find(g => g.items.includes(i)); const cor = cardInfo(gi, gi.items.indexOf(i)).cor; return `<a class="back" href="#/menus">← Funcionalidade dos menus</a><div class="mhead col" style="--c:${cor}"><h1>${i.t}</h1><p>${i.d}</p><nav class="seg">${LAYERS3.map(l => `<a href="#/menus/${i.id}/${l[0]}" aria-current="${l[0] === Lr[0]}">${l[1]}</a>`).join('')}</nav></div><div class="layer">${itemBody(i, Lr[0])}</div>`; }
   if (a === 'areas' && b === 'comercial' && c) { const nm = c === 'primeiro' ? '1º Contato' : (COMERCIAL.find(z => z.id === c) || {}).t; if (nm) { const dd = c === 'primeiro' ? 'Por onde começa a rotina dentro do sistema.' : COMERCIAL.find(z => z.id === c).d; return `<a class="back" href="#/areas/comercial">← Comercial</a><div class="mhead col" style="--c:${COMCOR[c]}"><h1>${nm}</h1><p>${dd}</p></div><div class="layer">${c === 'primeiro' ? primeiroBody() : rotinaBody(c)}</div>`; } }
   if (a === 'areas') { const x = AREAS_LIST.find(z => z.id === b); return x ? `<a class="back" href="#/areas">← Rotina de Trabalho dentro do Sistema</a>${head(x.t, x.d)}<div class="layer">${areaBody(x)}</div>` : head('Rotina de Trabalho dentro do Sistema', 'Escolha a área para ver a rotina de trabalho: por onde começar, o que preencher e como cada etapa se conecta à próxima.') + areasTiles(); }
+  if (a === 'treino') return head('Treinamento consultivo', 'A lógica e a conexão entre os módulos.') + `<div class="layer">${treinoBody()}</div>`;
   if (a === 'faq') return head('Dúvidas frequentes') + `<div class="layer">${faqBody()}</div>`;
   if (a === 'contatos') return head('Contatos') + contatosBody();
   if (a === 'chamados') return head('Abra chamados') + chamadosBody();
@@ -941,7 +987,7 @@ function book() {
   const sec = (t, h) => `<section class="chap"><h1>${t}</h1>${h}</section>`;
   const h = `<div class="bar"><span>Pré-visualização do PDF</span><button onclick="window.print()">Imprimir / Salvar como PDF</button></div>
   <section class="cover"><img class="logo xl" src="${LOGO}" alt="Next01"><div class="kicker">Next01 Software</div><h1>Manual do sistema</h1><p>Versão ${VERSION}</p><ol class="toc">${SECTIONS.map(s => `<li>${s[1]}</li>`).join('')}</ol></section>`
-    + sec('Quem somos', quemBody())
+    + sec('Quem somos', quemBody()) + sec('Treinamento consultivo', treinoBody())
     + sec('Funcionalidade dos menus', items().filter(i => CONTENT[i.id]).map(i => `<h2>${i.t}</h2><p class="d">${i.d}</p>${itemFull(i)}`).join(''))
     + sec('Rotina de Trabalho dentro do Sistema', areasBody())
     + sec('Dúvidas frequentes', faqBody()) + sec('Contatos', contatosBody()) + sec('Abra chamados', chamadosBody());
@@ -957,6 +1003,7 @@ function buildIdx() {
   idx.push({ href: '#/areas/comercial/primeiro', tag: 'Rotina de Trabalho dentro do Sistema · Comercial', title: '1º Contato', text: primeiroBody().replace(/<[^>]+>/g, ' ') });
   COMERCIAL.filter(x => ROTINAS[x.id]).forEach(x => idx.push({ href: `#/areas/comercial/${x.id}`, tag: 'Rotina de Trabalho dentro do Sistema · Comercial', title: x.t, text: rotinaBody(x.id).replace(/<[^>]+>/g, ' ') }));
   AREAS_LIST.filter(x => x.id !== 'comercial').forEach(x => guidesOf(x.id).forEach(g => idx.push({ href: `#/areas/${x.id}`, tag: 'Rotina de Trabalho dentro do Sistema · ' + x.t, title: g.t, text: flat(g).join(' ') })));
+  MODULES.filter(m => m.ent.length).forEach(m => idx.push({ href: '#/treino', tag: 'Treinamento consultivo', title: m.t, text: flat(m.ent).join(' ') }));
   FAQ.forEach(q => idx.push({ href: '#/faq', tag: 'Dúvidas frequentes', title: q[0], text: q[1] }));
   idx.push({ href: '#/quem', tag: 'Quem somos', title: 'Next01 Software', text: flat(QUEM).join(' ') }, { href: '#/contatos', tag: 'Contatos', title: 'Contatos', text: flat(CONTATOS).join(' ') });
 }
