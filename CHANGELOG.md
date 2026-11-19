@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.18 (zip)
+- Vendas: menu, Painel de vendas, Tipo de venda, Orçamento (barra, mais opções, gerar pedido), Pedido, Faturar, PDV (lista, caixa, tela, opções, finalizar) e Relatórios de pedido. Nomes de empresa, cliente e vendedor trocados por fictícios nos prints.
+
 ## v2.17 (zip)
 - Treinamento Consultivo permanece no APP (versão da equipe). A versão do cliente, com regras de visibilidade, será feita no fim do projeto.
 - "Passo a passo por área" passou a se chamar "Rotina de Trabalho dentro do Sistema".
