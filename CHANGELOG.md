@@ -1,5 +1,13 @@
 # Versões do Manual Next01
 
+## v2.16 (zip)
+- Treinamento Consultivo retirado do manual do cliente (menu, páginas, busca e PDF). Conteúdo preservado em arquivo interno, fora do zip.
+- "Passo a passo por área" passou a se chamar "Rotina de Trabalho dentro do Sistema".
+- Comercial: 1º Contato (jornada e caminhos) e 5 quadros: Contrato Mensal (laranja), Contrato para Evento (verde), Aditivos, Encerramento e Manifesto de Resíduos. Mensal e Evento seguem os 7 pontos de profundidade.
+
+## v2.15 (zip)
+- Compras: nova parte "Pedido salvo › Finalizar e Imprimir" (print, legendas e passo a passo). Deixado claro que o pedido só vai para Contas a pagar depois de finalizado.
+
 ## v2.14 (zip)
 - Compras: menu, Tipo de compra, Requisição de compra (lista, dados, produtos, totais) e Pedido de compra (lista, dados, produtos, financeiro, totais), com Entender, Conhecer e Fazer.
 
