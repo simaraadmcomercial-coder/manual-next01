@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.19 (zip)
+- Contrato: menu, Painel de contratos, Cadastros (Tipo de contrato e Eventos), Orçamento de locação (dados, produtos, transporte, financeiro, totais, Gerar contrato), Contrato (barra, abas por tipo, produtos, transporte, programação, totais, financeiro, ordem de serviço, faturamento). Nomes de empresa e números de documentos trocados por fictícios nos prints.
+
 ## v2.18 (zip)
 - Vendas: menu, Painel de vendas, Tipo de venda, Orçamento (barra, mais opções, gerar pedido), Pedido, Faturar, PDV (lista, caixa, tela, opções, finalizar) e Relatórios de pedido. Nomes de empresa, cliente e vendedor trocados por fictícios nos prints.
 
