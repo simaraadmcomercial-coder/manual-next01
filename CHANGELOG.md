@@ -1,5 +1,12 @@
 # Versões do Manual Next01
 
+## v2.22 (zip)
+- Serviços › Ordem de serviço › Serviços e Guia Prático: "mudar a ordem" passa a dizer "mudar a ordem dos itens da rota".
+
+## v2.21 (zip)
+- Serviços: menu, Painel de OS, Execução por base, Cadastros (Tipo de serviço), Análise de OS (filtros, rota, gerar), Ordem de serviço (pesquisa, botões, dados, serviços, despesas, apontamento em campo, checklist). Nomes de empresa, bases, clientes, motoristas, veículos e números fictícios nos prints.
+- Guia Prático › Operacional: novos passos "Preencher a ordem de serviço" e "Finalizar a ordem de serviço".
+
 ## v2.20 (zip)
 - Aba "Rotina de Trabalho dentro do Sistema" renomeada para "Guia Prático - Passo a Passo" (menu, títulos, busca e versão PDF).
 - Frase central na abertura do Guia: "Como a empresa trabalha É CULTURA INTERNA. O SISTEMA é o meio pelo qual o registro de formalidade acontece."
