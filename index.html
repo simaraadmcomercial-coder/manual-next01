@@ -32,6 +32,7 @@ main{padding-block:24px 56px}
 .block h3{font-size:1.3rem}.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 0}
 .flow li{display:flex;align-items:center}.flow li span{background:var(--sand);padding:9px 14px;border-radius:10px;font-weight:600;font-size:.9rem}.flow li.hi span{background:var(--c);color:#fff}.flow li:not(:last-child)::after{content:"→";color:var(--red);font-weight:700;padding-inline:9px}
 .chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}.chips li{background:var(--sand);border-radius:10px;padding:10px;text-align:center;font-weight:600}.chips li.hi{background:var(--c);color:#fff}
+.frase{border-left:6px solid var(--red);background:var(--sf);border-radius:12px;padding:18px 22px;margin:0 0 20px;font-size:1.15rem;font-weight:600;line-height:1.5}.frase p{margin:0 0 6px}.frase p:last-child{margin:0}.frase strong{color:var(--red)}
 .callout{background:var(--brand);color:#fff;border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .details,.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0}.details div,.terms div,.fcard{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 dt,.fcard h4,.how h4,.conn h4,.tips b,.cols h4{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--red)}dd{margin:4px 0 0}
@@ -310,12 +311,11 @@ const LAYERS = [['entender','Entender','ent'],['conhecer','Conhecer a tela','con
 // Conteúdo do manual. Para evoluir: preencher CONTENT[id] de cada item do menu.
 // Item: { subs:[{t, path, ent:[texto], nota, img:{src, alt, pins:[[x%, y%, 'Título', 'Explicação']]}, steps:[{t, s:[]}], tips:[]}], feat:[índices de legacy FEATS] }
 const VERSION = '1.0';
-const SECTIONS = [['quem','Quem somos'],['treino','Treinamento consultivo'],['menus','Funcionalidade dos menus'],['areas','Rotina de Trabalho dentro do Sistema'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
+const SECTIONS = [['quem','Quem somos'],['treino','Treinamento consultivo'],['menus','Funcionalidade dos menus'],['areas','Guia Prático - Passo a Passo'],['faq','Dúvidas frequentes'],['contatos','Contatos'],['chamados','Abra chamados']];
 const AREAS_LIST = [
  {id:'comercial',t:'Comercial',d:'Proposta, contrato, assinatura e programação.'},
  {id:'operacional',t:'Operacional',d:'Análise de O.S., equipe e acompanhamento da execução.'},
  {id:'faturamento',t:'Faturamento',d:'Emissão de notas e faturas e envio ao cliente.'},
- {id:'rh',t:'RH',d:'Controle de ponto, comunicação e coleta de assinaturas.'},
  {id:'financeiro',t:'Financeiro',d:'Contas a receber e a pagar, fluxo de caixa e conciliação.'}
 ];
 
@@ -957,6 +957,7 @@ const itemFull = i => LAYERS3.map(l => { const h = layerHTML(i, l[0]); return h 
 const guidesOf = id => (MODULES.find(m => m.id === id) || { faz: [] }).faz;
 const areaBody = x => x.id === 'comercial' ? comHub() : guidesOf(x.id).map((g, i) => guide(g, `${x.id}g${i}`)).join('') || empty;
 const hasArea = x => x.id === 'comercial' || guidesOf(x.id).length;
+const FRASE = `<div class="frase"><p>Como a empresa trabalha <strong>É CULTURA INTERNA.</strong></p><p>O <strong>SISTEMA</strong> é o meio pelo qual o registro de formalidade acontece.</p></div>`;
 const areasTiles = () => `<ul class="tiles">${AREAS_LIST.map(x => `<li><a class="tile ${hasArea(x) ? '' : 'prep'}" href="#/areas/${x.id}"><h3>${x.t}</h3><p>${x.d}</p>${hasArea(x) ? '' : '<span class="bd">Em preparação</span>'}</a></li>`).join('')}</ul>`;
 const areasBody = () => AREAS_LIST.filter(hasArea).map(x => `<section class="area"><h2>${x.t}</h2><p class="d">${x.d}</p>${x.id === 'comercial' ? comPrint() : areaBody(x)}</section>`).join('');
 const treinoBody = () => block({ kicker: 'Conscientização', title: 'Por que preencher corretamente', flow: ['Cadastro', 'Comercial', 'Faturamento', 'Financeiro'], hi: 0, lead: TREINO.intro, callout: [TREINO.corrige] }) + MODULES.filter(m => m.ent.length).map(m => `<h2>${m.t}</h2>${m.ent.map(block).join('')}`).join('');
@@ -977,7 +978,7 @@ const head = (t, d) => `<div class="mhead"><h1>${t}</h1>${d ? `<p>${d}</p>` : ''
 function page(a, b, c) {
   if (a === 'menus') { const i = items().find(x => x.id === b); if (!i) return head('Funcionalidade dos menus', 'Os módulos do sistema, na mesma ordem do menu lateral. Cada um explica o que é, mostra a tela e ensina a fazer.') + menusBody(); const Lr = LAYERS3.find(l => l[0] === c) || LAYERS3[0]; const gi = MENU.find(g => g.items.includes(i)); const cor = cardInfo(gi, gi.items.indexOf(i)).cor; return `<a class="back" href="#/menus">← Funcionalidade dos menus</a><div class="mhead col" style="--c:${cor}"><h1>${i.t}</h1><p>${i.d}</p><nav class="seg">${LAYERS3.map(l => `<a href="#/menus/${i.id}/${l[0]}" aria-current="${l[0] === Lr[0]}">${l[1]}</a>`).join('')}</nav></div><div class="layer">${itemBody(i, Lr[0])}</div>`; }
   if (a === 'areas' && b === 'comercial' && c) { const nm = c === 'primeiro' ? '1º Contato' : (COMERCIAL.find(z => z.id === c) || {}).t; if (nm) { const dd = c === 'primeiro' ? 'Por onde começa a rotina dentro do sistema.' : COMERCIAL.find(z => z.id === c).d; return `<a class="back" href="#/areas/comercial">← Comercial</a><div class="mhead col" style="--c:${COMCOR[c]}"><h1>${nm}</h1><p>${dd}</p></div><div class="layer">${c === 'primeiro' ? primeiroBody() : rotinaBody(c)}</div>`; } }
-  if (a === 'areas') { const x = AREAS_LIST.find(z => z.id === b); return x ? `<a class="back" href="#/areas">← Rotina de Trabalho dentro do Sistema</a>${head(x.t, x.d)}<div class="layer">${areaBody(x)}</div>` : head('Rotina de Trabalho dentro do Sistema', 'Escolha a área para ver a rotina de trabalho: por onde começar, o que preencher e como cada etapa se conecta à próxima.') + areasTiles(); }
+  if (a === 'areas') { const x = AREAS_LIST.find(z => z.id === b); return x ? `<a class="back" href="#/areas">← Guia Prático - Passo a Passo</a>${head(x.t, x.d)}<div class="layer">${areaBody(x)}</div>` : head('Guia Prático - Passo a Passo', 'Escolha a área para ver o passo a passo: por onde começar, o que preencher e como cada etapa se conecta à próxima.') + FRASE + areasTiles(); }
   if (a === 'treino') return head('Treinamento consultivo', 'A lógica e a conexão entre os módulos.') + `<div class="layer">${treinoBody()}</div>`;
   if (a === 'faq') return head('Dúvidas frequentes') + `<div class="layer">${faqBody()}</div>`;
   if (a === 'contatos') return head('Contatos') + contatosBody();
@@ -991,7 +992,7 @@ function book() {
   <section class="cover"><img class="logo xl" src="${LOGO}" alt="Next01"><div class="kicker">Next01 Software</div><h1>Manual do sistema</h1><p>Versão ${VERSION}</p><ol class="toc">${SECTIONS.map(s => `<li>${s[1]}</li>`).join('')}</ol></section>`
     + sec('Quem somos', quemBody()) + sec('Treinamento consultivo', treinoBody())
     + sec('Funcionalidade dos menus', items().filter(i => CONTENT[i.id]).map(i => `<h2>${i.t}</h2><p class="d">${i.d}</p>${itemFull(i)}`).join(''))
-    + sec('Rotina de Trabalho dentro do Sistema', areasBody())
+    + sec('Guia Prático - Passo a Passo', FRASE + areasBody())
     + sec('Dúvidas frequentes', faqBody()) + sec('Contatos', contatosBody()) + sec('Abra chamados', chamadosBody());
   printing = false; return h;
 }
@@ -1002,9 +1003,9 @@ const flat = (o, a = []) => (o && typeof o === 'object' ? Object.values(o).forEa
 function buildIdx() {
   idx = [];
   MENU.forEach(g => g.items.forEach(i => LAYERS3.forEach(l => { const h = layerHTML(i, l[0]); if (h || l[0] === 'entender') idx.push({ href: `#/menus/${i.id}/${l[0]}`, tag: `Funcionalidade dos menus · ${l[1]}`, title: i.t, text: (l[0] === 'entender' ? i.d + ' ' : '') + h.replace(/<[^>]+>/g, ' ') }); })));
-  idx.push({ href: '#/areas/comercial/primeiro', tag: 'Rotina de Trabalho dentro do Sistema · Comercial', title: '1º Contato', text: primeiroBody().replace(/<[^>]+>/g, ' ') });
-  COMERCIAL.filter(x => ROTINAS[x.id]).forEach(x => idx.push({ href: `#/areas/comercial/${x.id}`, tag: 'Rotina de Trabalho dentro do Sistema · Comercial', title: x.t, text: rotinaBody(x.id).replace(/<[^>]+>/g, ' ') }));
-  AREAS_LIST.filter(x => x.id !== 'comercial').forEach(x => guidesOf(x.id).forEach(g => idx.push({ href: `#/areas/${x.id}`, tag: 'Rotina de Trabalho dentro do Sistema · ' + x.t, title: g.t, text: flat(g).join(' ') })));
+  idx.push({ href: '#/areas/comercial/primeiro', tag: 'Guia Prático - Passo a Passo · Comercial', title: '1º Contato', text: primeiroBody().replace(/<[^>]+>/g, ' ') });
+  COMERCIAL.filter(x => ROTINAS[x.id]).forEach(x => idx.push({ href: `#/areas/comercial/${x.id}`, tag: 'Guia Prático - Passo a Passo · Comercial', title: x.t, text: rotinaBody(x.id).replace(/<[^>]+>/g, ' ') }));
+  AREAS_LIST.filter(x => x.id !== 'comercial').forEach(x => guidesOf(x.id).forEach(g => idx.push({ href: `#/areas/${x.id}`, tag: 'Guia Prático - Passo a Passo · ' + x.t, title: g.t, text: flat(g).join(' ') })));
   MODULES.filter(m => m.ent.length).forEach(m => idx.push({ href: '#/treino', tag: 'Treinamento consultivo', title: m.t, text: flat(m.ent).join(' ') }));
   FAQ.forEach(q => idx.push({ href: '#/faq', tag: 'Dúvidas frequentes', title: q[0], text: q[1] }));
   idx.push({ href: '#/quem', tag: 'Quem somos', title: 'Next01 Software', text: flat(QUEM).join(' ') }, { href: '#/contatos', tag: 'Contatos', title: 'Contatos', text: flat(CONTATOS).join(' ') });

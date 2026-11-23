@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.20 (zip)
+- Aba "Rotina de Trabalho dentro do Sistema" renomeada para "Guia Prático - Passo a Passo" (menu, títulos, busca e versão PDF).
+- Frase central na abertura do Guia: "Como a empresa trabalha É CULTURA INTERNA. O SISTEMA é o meio pelo qual o registro de formalidade acontece."
+- Área RH removida do Guia Prático (o sistema não tem módulo RH).
+
 ## v2.19 (zip)
 - Contrato: menu, Painel de contratos, Cadastros (Tipo de contrato e Eventos), Orçamento de locação (dados, produtos, transporte, financeiro, totais, Gerar contrato), Contrato (barra, abas por tipo, produtos, transporte, programação, totais, financeiro, ordem de serviço, faturamento). Nomes de empresa e números de documentos trocados por fictícios nos prints.
 
