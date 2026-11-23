@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.23 (zip)
+- Faturamento: menu, Painel de faturamento, Cadastros (Regra fiscal e Código de serviço), NFS-e Movimentação (dados, tomador, serviços, endereço, totais, ISS, financeiro), Fatura de locação, NF-e Movimentação (barra de botões, abas) e Análise de faturamento (filtros, botões verdes, faturar agrupado, espelho da medição). Gestão de medições e Contratos para faturamento marcados como em desenvolvimento. Empresa, CNPJ, clientes e número de contrato fictícios nos prints.
+- Observações: reforma tributária (segunda revisão da emissão de nota) e PDFs salvos no servidor da empresa.
+- Guia Prático › Faturamento refeito (Análise, avulsa, NF-e, cadastros fiscais). Bitrix24 removido. D4Sign no Comercial passa a ser sugestão. Caminho de pasta do computador removido.
+
 ## v2.22 (zip)
 - Serviços › Ordem de serviço › Serviços e Guia Prático: "mudar a ordem" passa a dizer "mudar a ordem dos itens da rota".
 
