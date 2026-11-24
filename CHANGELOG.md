@@ -1,5 +1,11 @@
 # Versões do Manual Next01
 
+## v2.31
+- Menu: Apresentação passa a ficar antes do Treinamento consultivo.
+- Manual: novo item "Contrato: Encerrar, Inativar e Faturar" (Entender e Fazer); novo guia em Guia Prático › Faturamento; quadro Comercial › Encerramento preenchido (7 pontos, texto-rascunho).
+- Treinamento consultivo incorporado à Apresentação (workshop): aba removida do menu, links antigos (#/treino) abrem a Apresentação, PDF do manual sem o capítulo Treinamento.
+- Apresentação: 3 slides novos (Encerrar × Inativar; Contratos de obras; Contratos de evento: o botão Faturar), com atalhos ao manual.
+
 ## v2.30
 - Apresentação, slide Assinatura, guias e programação: textos revisados (assinatura digital com texto conforme o modelo da empresa; guias enviadas ao departamento ou impressas conforme a necessidade, também pela ordem de serviço); removido "Programação / Escala"; novo item "4. Acompanhamento comercial".
 - Operacional (abertura): chip "Rota" trocado por "Ordem de Serviços".
