@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.25
+- Nova aba **Roteiro do treinamento** (entre Treinamento consultivo e Funcionalidade dos menus), para a consultora conduzir a sessão: antes da sessão, 10 etapas (abertura, participantes, produtos, orçamento, contrato, assinatura/guias, operacional, faturamento, financeiro em preparação, encerramento), cada uma com objetivo, o que explicar, o que mostrar (com link ao manual), prática e checklist marcável.
+- Entra na busca e no PDF (#/imprimir).
+
 ## v2.24 (zip)
 - Comercial › 1º Contato: removido o quadro "Já tenho os dados cadastrais da empresa?" (repetia o quadro dos participantes).
 
