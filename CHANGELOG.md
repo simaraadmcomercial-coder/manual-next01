@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.24 (zip)
+- Comercial › 1º Contato: removido o quadro "Já tenho os dados cadastrais da empresa?" (repetia o quadro dos participantes).
+
 ## v2.23 (zip)
 - Faturamento: menu, Painel de faturamento, Cadastros (Regra fiscal e Código de serviço), NFS-e Movimentação (dados, tomador, serviços, endereço, totais, ISS, financeiro), Fatura de locação, NF-e Movimentação (barra de botões, abas) e Análise de faturamento (filtros, botões verdes, faturar agrupado, espelho da medição). Gestão de medições e Contratos para faturamento marcados como em desenvolvimento. Empresa, CNPJ, clientes e número de contrato fictícios nos prints.
 - Observações: reforma tributária (segunda revisão da emissão de nota) e PDFs salvos no servidor da empresa.
