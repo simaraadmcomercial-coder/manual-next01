@@ -1,8 +1,13 @@
 # Versões do Manual Next01
 
+## v2.26
+- Regra incluída nos slides (3, 4, 12, 13, 14) e no manual (Faturamento › Análise de faturamento e Guia Prático): a O.S. gera a demanda de serviços (instalação, manutenção, sucção, manutenção extra, troca ou retirada, que são as taxas) e a Análise de faturamento só computa o que está vinculado a uma O.S. finalizada.
+
 ## v2.25
-- Nova aba **Roteiro do treinamento** (entre Treinamento consultivo e Funcionalidade dos menus), para a consultora conduzir a sessão: antes da sessão, 10 etapas (abertura, participantes, produtos, orçamento, contrato, assinatura/guias, operacional, faturamento, financeiro em preparação, encerramento), cada uma com objetivo, o que explicar, o que mostrar (com link ao manual), prática e checklist marcável.
-- Entra na busca e no PDF (#/imprimir).
+- Nova aba **Apresentação** (entre Treinamento consultivo e Funcionalidade dos menus): 17 slides no estilo do Canva (fundo lilás, cartões coloridos, peças de quebra-cabeça, linha do tempo, logos Next01 e Simara Lobui), mostrando a sequência, a conexão e a lógica dos módulos.
+- Cada slide tem atalhos "Aprofundar": Treinamento consultivo, Ver no manual e Guia Prático.
+- Navegação por setas do teclado, seletor de slide, Tela cheia e Baixar PDF (um slide por página). Entra na busca; não entra no PDF do manual.
+- Removidos do conteúdo: Bitrix24, pasta do computador da empresa e RH.
 
 ## v2.24 (zip)
 - Comercial › 1º Contato: removido o quadro "Já tenho os dados cadastrais da empresa?" (repetia o quadro dos participantes).
