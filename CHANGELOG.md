@@ -1,5 +1,12 @@
 # Versões do Manual Next01
 
+## v2.27
+- Aba **Apresentação** refeita no visual do manual (faixa azul-marinho com logo, cartões brancos com borda colorida, vermelho de destaque, mesma fonte). Logo da Simara Lobui removido.
+- Slide 2 refeito como fluxograma fluido (cadastro como base, 5 setores em arco, setas e rótulos do que passa de um para o próximo).
+- Removidos os slides de Cadastro de participantes, Cadastro de produtos, Orçamento de locação e Outras formas e cuidados (a observação do servidor e da reforma tributária foi para o slide de emissão de notas). Agora são 13 slides.
+- Atalhos por slide: Entender, Conhecer as telas e Fazer do módulo (Contrato, Serviços, Faturamento), Guia Prático e Treinamento consultivo.
+- Operacional entrega: "O.S. finalizada, com a execução registrada."
+
 ## v2.26
 - Regra incluída nos slides (3, 4, 12, 13, 14) e no manual (Faturamento › Análise de faturamento e Guia Prático): a O.S. gera a demanda de serviços (instalação, manutenção, sucção, manutenção extra, troca ou retirada, que são as taxas) e a Análise de faturamento só computa o que está vinculado a uma O.S. finalizada.
 
