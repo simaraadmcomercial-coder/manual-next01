@@ -402,7 +402,8 @@ const AREAS_LIST = [
  {id:'comercial',t:'Comercial',d:'Proposta, contrato, assinatura e programação.'},
  {id:'operacional',t:'Operacional',d:'Análise de O.S., equipe e acompanhamento da execução.'},
  {id:'faturamento',t:'Faturamento',d:'Emissão de notas e faturas e envio ao cliente.'},
- {id:'financeiro',t:'Financeiro',d:'Contas a receber e a pagar, fluxo de caixa e conciliação.'}
+ {id:'financeiro',t:'Financeiro',d:'Contas a receber e a pagar, fluxo de caixa e conciliação.'},
+ {id:'approtas',t:'APP Rotas',d:'Rotas e execução da operação pelo aplicativo.'}
 ];
 
 const MENU = [
@@ -1139,7 +1140,7 @@ const ICP = {
  home:'<path d="M3 11l9-8 9 8v10H3z"/>'
 };
 const ic = (k, z) => `<svg viewBox="0 0 24 24" width="${z || 40}" height="${z || 40}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICP[k] || ICP.check}</svg>`;
-const ICM = { 'CADASTRO':'user','ORÇAMENTO':'doc','CONTRATO':'pen','PROGRAMAÇÃO / O.S.':'cal','NOTA / FATURA':'money','ENCERRAR':'check','INATIVAR':'folder','FATURAR EVENTO':'money','REATIVAR':'gear','PROGRAMAR A RETIRADA':'cal','CONCLUIR PELA O.S.':'truck','CHECKBOX DE ENCERRAMENTO':'check','LANÇAMENTO FINANCEIRO':'money','ATENÇÃO':'search','ENCERRAR × INATIVAR':'check','CONTRATOS DE OBRAS':'truck','CONTRATOS DE EVENTO':'pen','FINANCEIRO':'chart','MENU':'menu','PARTICIPANTES':'user','DADOS GERAIS':'doc','ENDEREÇO':'home','SALVAR':'save','PRODUTO':'box','ORÇAMENTO DE LOCAÇÃO':'doc','PRODUTOS E SERVIÇOS':'box','DADOS DO TRANSPORTE':'truck','DADOS DO PAGAMENTO':'card','GERAR CONTRATO':'pen','PRODUTOS E SERVIÇOS / TRANSPORTE':'truck','PROGRAMAÇÃO':'cal','CONFIRMAR':'check','ASSINATURA DIGITAL':'pen','ASSINATURA':'mail','GUIAS DE ENTREGA / RETIRADA':'folder','PROGRAMAÇÃO / ESCALA':'cal','ANÁLISE DE O.S.':'search','GERAR ROTA':'route','GERAR ROTA AVULSO':'route','DISTRIBUIÇÃO DA EQUIPE':'team','ACOMPANHAR EXECUÇÃO':'check','GESTÃO DO DIA':'chart','NOVO':'search','BOTÃO LOCAÇÃO':'clip','IMPRESSO':'doc','ENVIAR AO CLIENTE':'mail','REGRA FISCAL E CÓDIGO DE SERVIÇO':'clip','NOTA AVULSA':'doc','NF-E':'box','GUARDAR':'folder','ACOMPANHAMENTO COMERCIAL':'search','GERAR A O.S.':'route','DADOS DA O.S.':'clip','SERVIÇOS':'box','IMPRIMIR':'doc','FINALIZAR':'check','CADASTROS':'user','COMERCIAL':'doc','OPERACIONAL':'route','FATURAMENTO':'money' };
+const ICM = { 'CADASTRO':'user','ORÇAMENTO':'doc','CONTRATO':'pen','PROGRAMAÇÃO / O.S.':'cal','NOTA / FATURA':'money','ORDEM DE SERVIÇO':'truck','FATURAR':'money','RECEBER':'chart','ENCERRAR':'check','INATIVAR':'folder','FATURAR EVENTO':'money','REATIVAR':'gear','PROGRAMAR A RETIRADA':'cal','CONCLUIR PELA O.S.':'truck','CHECKBOX DE ENCERRAMENTO':'check','LANÇAMENTO FINANCEIRO':'money','ATENÇÃO':'search','ENCERRAR × INATIVAR':'check','CONTRATOS DE OBRAS':'truck','CONTRATOS DE EVENTO':'pen','FINANCEIRO':'chart','MENU':'menu','PARTICIPANTES':'user','DADOS GERAIS':'doc','ENDEREÇO':'home','SALVAR':'save','PRODUTO':'box','ORÇAMENTO DE LOCAÇÃO':'doc','PRODUTOS E SERVIÇOS':'box','DADOS DO TRANSPORTE':'truck','DADOS DO PAGAMENTO':'card','GERAR CONTRATO':'pen','PRODUTOS E SERVIÇOS / TRANSPORTE':'truck','PROGRAMAÇÃO':'cal','CONFIRMAR':'check','ASSINATURA DIGITAL':'pen','ASSINATURA':'mail','GUIAS DE ENTREGA / RETIRADA':'folder','PROGRAMAÇÃO / ESCALA':'cal','ANÁLISE DE O.S.':'search','GERAR ROTA':'route','GERAR ROTA AVULSO':'route','DISTRIBUIÇÃO DA EQUIPE':'team','ACOMPANHAR EXECUÇÃO':'check','GESTÃO DO DIA':'chart','NOVO':'search','BOTÃO LOCAÇÃO':'clip','IMPRESSO':'doc','ENVIAR AO CLIENTE':'mail','REGRA FISCAL E CÓDIGO DE SERVIÇO':'clip','NOTA AVULSA':'doc','NF-E':'box','GUARDAR':'folder','ACOMPANHAMENTO COMERCIAL':'search','GERAR A O.S.':'route','DADOS DA O.S.':'clip','SERVIÇOS':'box','IMPRIMIR':'doc','FINALIZAR':'check','CADASTROS':'user','COMERCIAL':'doc','OPERACIONAL':'route','FATURAMENTO':'money' };
 const icn = (h, z) => ic(ICM[String(h).toUpperCase()], z);
 
 const DKC = ['#2347B8', '#00A859', '#1B4F72', '#D62828', '#B8860B', '#5B6785'];
@@ -1181,6 +1182,12 @@ const SLIDES = [
    { h: 'PROGRAMAÇÃO / O.S.', t: 'A demanda de serviços a executar, quando e com qual equipe.' },
    { h: 'NOTA / FATURA', t: 'O que foi executado e finalizado na O.S. vira cobrança.' },
    { h: 'FINANCEIRO', t: 'Recebimento e baixa.' }], true) + dnote('Um dado errado no cadastro se repete no orçamento, no contrato, na nota fiscal e na cobrança. Por isso, preencher cada campo com atenção é o que mantém o fluxo inteiro funcionando.') },
+ { t: 'A rotina em 5 ações', r: () => dhd('A ROTINA EM 5 AÇÕES', 'A sequência que o sistema conduz, do pedido ao recebimento') + dcols([
+   { h: 'ORÇAMENTO', t: 'Propor e negociar.' },
+   { h: 'CONTRATO', t: 'Formalizar o que foi aprovado.' },
+   { h: 'ORDEM DE SERVIÇO', t: 'Executar o que foi contratado.' },
+   { h: 'FATURAR', t: 'Cobrar o que foi executado.' },
+   { h: 'RECEBER', t: 'Baixar e conciliar.' }], true) + dnote('Cada ação depende da anterior: o que foi combinado no contrato é executado na O.S., faturado e recebido.') },
  { t: 'Como os módulos se conectam', r: () => dhd('COMO OS MÓDULOS SE CONECTAM', 'O que cada módulo recebe e o que entrega para o próximo') + `<div class="dconn"><div class="dcr hd"><span></span><span>RECEBE</span><span></span><span>ENTREGA</span></div>${[
    ['CADASTROS', 'Dados do cliente e do produto, digitados uma única vez.', 'Participantes e produtos prontos para usar no Comercial.'],
    ['COMERCIAL', 'Participantes e produtos cadastrados.', 'Contrato e programação, que viram a demanda do Operacional.'],
@@ -1263,6 +1270,7 @@ const L3 = id => [['Entender', `#/menus/${id}/entender`], ['Conhecer as telas', 
 const SLINKS = {
  'Fluxograma da rotina': [['Guia Prático', '#/areas']],
  'Como os módulos se conectam': [['Funcionalidade dos menus', '#/menus']],
+ 'A rotina em 5 ações': [['Guia Prático', '#/areas']],
  'Comercial': [['Guia Prático: Comercial', '#/areas/comercial']],
  'Contrato de locação': L3('contrato').concat([['Guia Prático: Comercial', '#/areas/comercial']]),
  'Contrato: campos (1/2)': L3('contrato'),

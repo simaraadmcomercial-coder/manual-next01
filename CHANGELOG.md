@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.32
+- Guia Prático: novo quadro "APP Rotas" (Em preparação).
+- Apresentação: novo slide "A rotina em 5 ações" (Orçamento > Contrato > Ordem de serviço > Faturar > Receber).
+
 ## v2.31
 - Menu: Apresentação passa a ficar antes do Treinamento consultivo.
 - Manual: novo item "Contrato: Encerrar, Inativar e Faturar" (Entender e Fazer); novo guia em Guia Prático › Faturamento; quadro Comercial › Encerramento preenchido (7 pontos, texto-rascunho).
