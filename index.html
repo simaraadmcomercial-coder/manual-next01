@@ -60,6 +60,9 @@ main{padding-block:24px 56px}
 .dpx{position:absolute;font-size:21px;line-height:1.38}.dpx h3{font-size:27px;font-weight:700;margin:0 0 6px!important}
 .dpill{position:absolute;transform:translate(-50%,-50%);background:#CD1D50;color:#fff;font-size:18px;font-weight:600;padding:6px 16px;border-radius:999px;white-space:nowrap;z-index:3}
 .dconn{position:absolute;left:70px;right:70px;top:185px;bottom:60px;display:flex;flex-direction:column;gap:14px}
+.dfs{position:absolute;left:60px;right:60px;top:185px;bottom:200px;display:grid;gap:22px}
+.dfl{list-style:none;margin:0!important;padding:4px 18px 14px!important;columns:var(--k,1);column-gap:22px;font-size:20px;line-height:1.5;text-align:left}.dfl li{break-inside:avoid;padding-left:18px;position:relative}.dfl li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--c)}
+.dfl li.req{font-weight:700}.dfl .rq{color:#CD1D50;font-weight:700;font-size:1.1em}.dfl li.dsub{font-weight:700;color:var(--c);padding-left:0;margin-top:6px;font-size:17px;letter-spacing:.06em;text-transform:uppercase;column-span:none}.dfl li.dsub::before{display:none}
 .dcr{flex:1;display:grid;grid-template-columns:270px 1fr 50px 1fr;gap:18px;align-items:center;background:#fff;border:1px solid #B3C0DD;border-radius:14px;padding-right:22px;overflow:hidden;box-shadow:0 4px 10px rgba(20,30,90,.1)}
 .dcr.hd{flex:none;background:none;border:0;box-shadow:none;height:30px;font-weight:700;letter-spacing:.12em;font-size:18px;color:#CD1D50}
 .dcr b{height:100%;display:grid;place-items:center;font-size:23px;font-weight:700;background:var(--c);color:#fff}.dcr b span{text-align:center;line-height:1.5}.dcr p{font-size:21px;line-height:1.32}.dcr i{font-style:normal;font-size:34px;color:#CD1D50;text-align:center}
@@ -1123,7 +1126,7 @@ const ICP = {
  home:'<path d="M3 11l9-8 9 8v10H3z"/>'
 };
 const ic = (k, z) => `<svg viewBox="0 0 24 24" width="${z || 40}" height="${z || 40}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICP[k] || ICP.check}</svg>`;
-const ICM = { 'CADASTRO':'user','ORÇAMENTO':'doc','CONTRATO':'pen','PROGRAMAÇÃO / O.S.':'cal','NOTA / FATURA':'money','FINANCEIRO':'chart','MENU':'menu','PARTICIPANTES':'user','DADOS GERAIS':'doc','ENDEREÇO':'home','SALVAR':'save','PRODUTO':'box','ORÇAMENTO DE LOCAÇÃO':'doc','PRODUTOS E SERVIÇOS':'box','DADOS DO TRANSPORTE':'truck','DADOS DO PAGAMENTO':'card','GERAR CONTRATO':'pen','PRODUTOS E SERVIÇOS / TRANSPORTE':'truck','PROGRAMAÇÃO':'cal','CONFIRMAR':'check','ASSINATURA DIGITAL':'pen','ASSINATURA':'mail','GUIAS DE ENTREGA / RETIRADA':'folder','PROGRAMAÇÃO / ESCALA':'cal','ANÁLISE DE O.S.':'search','GERAR ROTA':'route','GERAR ROTA AVULSO':'route','DISTRIBUIÇÃO DA EQUIPE':'team','ACOMPANHAR EXECUÇÃO':'check','GESTÃO DO DIA':'chart','NOVO':'search','BOTÃO LOCAÇÃO':'clip','IMPRESSO':'doc','ENVIAR AO CLIENTE':'mail','REGRA FISCAL E CÓDIGO DE SERVIÇO':'clip','NOTA AVULSA':'doc','NF-E':'box','GUARDAR':'folder','CADASTROS':'user','COMERCIAL':'doc','OPERACIONAL':'route','FATURAMENTO':'money' };
+const ICM = { 'CADASTRO':'user','ORÇAMENTO':'doc','CONTRATO':'pen','PROGRAMAÇÃO / O.S.':'cal','NOTA / FATURA':'money','FINANCEIRO':'chart','MENU':'menu','PARTICIPANTES':'user','DADOS GERAIS':'doc','ENDEREÇO':'home','SALVAR':'save','PRODUTO':'box','ORÇAMENTO DE LOCAÇÃO':'doc','PRODUTOS E SERVIÇOS':'box','DADOS DO TRANSPORTE':'truck','DADOS DO PAGAMENTO':'card','GERAR CONTRATO':'pen','PRODUTOS E SERVIÇOS / TRANSPORTE':'truck','PROGRAMAÇÃO':'cal','CONFIRMAR':'check','ASSINATURA DIGITAL':'pen','ASSINATURA':'mail','GUIAS DE ENTREGA / RETIRADA':'folder','PROGRAMAÇÃO / ESCALA':'cal','ANÁLISE DE O.S.':'search','GERAR ROTA':'route','GERAR ROTA AVULSO':'route','DISTRIBUIÇÃO DA EQUIPE':'team','ACOMPANHAR EXECUÇÃO':'check','GESTÃO DO DIA':'chart','NOVO':'search','BOTÃO LOCAÇÃO':'clip','IMPRESSO':'doc','ENVIAR AO CLIENTE':'mail','REGRA FISCAL E CÓDIGO DE SERVIÇO':'clip','NOTA AVULSA':'doc','NF-E':'box','GUARDAR':'folder','ACOMPANHAMENTO COMERCIAL':'search','GERAR A O.S.':'route','DADOS DA O.S.':'clip','SERVIÇOS':'box','IMPRIMIR':'doc','FINALIZAR':'check','CADASTROS':'user','COMERCIAL':'doc','OPERACIONAL':'route','FATURAMENTO':'money' };
 const icn = (h, z) => ic(ICM[String(h).toUpperCase()], z);
 
 const DKC = ['#2347B8', '#00A859', '#1B4F72', '#D62828', '#B8860B', '#5B6785'];
@@ -1132,6 +1135,7 @@ const dp = x => (Array.isArray(x) ? x : [x]).map(l => `<p>${l}</p>`).join('');
 const dcols = (a, arrow) => `<div class="dcols ${arrow ? 'arr' : ''}" style="--n:${a.length}">${a.map((x, i) => `<div class="dcol" style="--c:${DKC[i % 6]}"><div class="dch"><span class="dnum">${i + 1}</span>${x.h}</div><div class="dcb"><div class="dic">${icn(x.h)}</div>${dp(x.t)}</div></div>`).join('')}</div>`;
 const dzig = a => `<div class="dzig" style="--n:${a.length};--cw:${Math.floor(1340 / a.length)}px"><div class="dline"></div>${a.map((x, i) => `<div class="dz ${i % 2 ? 'dn' : 'up'}" style="--c:${DKC[i % 6]}"><div class="dzt"><b class="dtag">${i + 1}. ${x.h}</b>${dp(x.t)}</div><span class="ddot">${icn(x.h, 34)}</span></div>`).join('')}</div>`;
 const ddiv = (t, c, d, chips) => `<div class="ddiv"><img class="dlg dlg0" src="${LOGO}" alt="Next01"><div class="dbadge" style="background:${c}">${icn(t, 70)}</div><h1>${t}</h1><i class="dbar" style="background:${c}"></i><p class="dd">${d}</p><ul class="dchips">${chips.map(x => `<li>${x}</li>`).join('')}</ul></div>`;
+const dfields = (a, cols) => `<div class="dfs" style="--n:${a.length};grid-template-columns:${cols}">${a.map((x, i) => `<div class="dcol" style="--c:${DKC[i % 6]}"><div class="dch"><span class="dnum">${i + 1}</span>${x.h}</div><ul class="dfl" style="--k:${x.k || 1}">${x.f.map(f => f.startsWith('~') ? `<li class="dsub">${f.slice(1)}</li>` : /\*$/.test(f) ? `<li class="req">${f.slice(0, -1)} <span class="rq">*</span></li>` : `<li>${f}</li>`).join('')}</ul></div>`).join('')}</div>`;
 const dnote = x => `<div class="dnote">${x}</div>`;
 const dhub = () => {
   const cx = 800, cy = 880, R = 470, rad = a => a * Math.PI / 180, ang = [170, 135, 90, 45, 10];
@@ -1145,11 +1149,11 @@ const dhub = () => {
     ['1º CONTATO', 'Recepcionar o cliente, entender a necessidade e apresentar a solução.', 'user', 'l', 0, 230],
     ['COMERCIAL', 'Enviar proposta e acompanhar a evolução. Fechar contrato e incluir na programação operacional. Faturar à vista ou enviar para faturamento.', 'doc', 'l', 30, 320],
     ['OPERACIONAL', 'Analisar a programação, organizar a equipe e acompanhar e pontuar a execução: entregas, manutenções e retiradas.', 'route', 't', 0, 600],
-    ['FATURAMENTO', 'Emitir NF e faturas. Solicitar boleto, quando necessário. Enviar ao cliente. Auxiliar na cobrança e enviar comprovantes ao financeiro.', 'money', 'r', 30, 320],
+    ['FATURAMENTO', 'Faz a análise do que precisa ser faturado, por meio das O.S. confirmadas. Pode ser enviado ao cliente via medição, para aprovação antes da emissão. Se for um cliente tranquilo, a emissão pode ser realizada sem o trâmite de medição.', 'money', 'r', 30, 320],
     ['FINANCEIRO', 'Contas a receber e a pagar, fluxo de caixa, conciliação bancária e emissão de boletos.', 'chart', 'r', 0, 240]
   ];
   const pins = S.map((x, i) => { const [px, py] = P[i], c = DKC[i], w = x[5];
-    const pos = x[3] === 'l' ? `left:${px - 65 - 24 - x[4] - w}px;top:${py - 70}px;width:${w}px;text-align:right` : x[3] === 'r' ? `left:${px + 65 + 24 + x[4]}px;top:${py - 70}px;width:${w}px` : `left:${px - w / 2}px;top:${py - 65 - 18 - 150}px;width:${w}px;text-align:center`;
+    const pos = x[3] === 'l' ? `left:${px - 65 - 24 - x[4] - w}px;top:${py - 70}px;width:${w}px;text-align:right` : x[3] === 'r' ? `left:${px + 65 + 24 + x[4]}px;top:${py - 70 - (i === 3 ? 100 : 0)}px;width:${w}px` : `left:${px - w / 2}px;top:${py - 65 - 18 - 150}px;width:${w}px;text-align:center`;
     return `<div class="dpin" style="left:${px - 65}px;top:${py - 65}px;background:${c}">${ic(x[2], 58)}<em>${i + 1}</em></div><div class="dpx" style="${pos}"><h3 style="color:${c}">${x[0]}</h3><p>${x[1]}</p></div>`; }).join('');
   return `${svg}<div class="dhub"><b>CADASTRO</b><span>A base de tudo: cliente e produto cadastrados uma única vez, usados em todas as etapas.</span></div>${pills}${pins}`;
 };
@@ -1169,7 +1173,7 @@ const SLIDES = [
    ['COMERCIAL', 'Participantes e produtos cadastrados.', 'Contrato e programação, que viram a demanda do Operacional.'],
    ['OPERACIONAL', 'A O.S. organiza a demanda: instalação, manutenção, sucção, manutenção extra, troca ou retirada.', 'O.S. finalizada, com a execução registrada.'],
    ['FATURAMENTO', 'Contratos do período. A análise só computa o que está vinculado a uma O.S. finalizada.', 'Nota fiscal e fatura, com PDF para o cliente.'],
-   ['FINANCEIRO', 'Notas e faturas emitidas.', 'Baixa, cobrança, fluxo de caixa e conciliação.']
+   ['FINANCEIRO', 'Notas e boletos emitidos.', 'Baixa, fluxo de caixa e conciliação.']
   ].map((x, i) => `<div class="dcr" style="--c:${DKC[i]}"><b><span>${icn(x[0], 34)}<br>${x[0]}</span></b><p>${x[1]}</p><i>→</i><p>${x[2]}</p></div>`).join('')}</div>` },
  { t: 'Comercial', r: () => ddiv('COMERCIAL', DKC[1], 'Da proposta à programação: o que o cliente pediu vira contrato e entra na agenda da operação.', ['Orçamento', 'Contrato', 'Assinatura', 'Guias', 'Programação']) },
  { t: 'Contrato de locação', r: () => dhd('CONTRATO DE LOCAÇÃO', 'Com o orçamento aprovado, seguir para a fase de elaborar o contrato') + dzig([
@@ -1179,12 +1183,23 @@ const SLIDES = [
    { h: 'PROGRAMAÇÃO', t: 'Programe o dia das entregas, manutenções e retiradas. É a base da análise de O.S. do operacional.' },
    { h: 'DADOS DO PAGAMENTO', t: 'Colocar as condições negociadas. Em eventos particulares, inserir financeiro para o caso de não haver nota. Nos mensais, definir o dia de faturamento.' },
    { h: 'CONFIRMAR', t: 'Após salvar, use a parte superior: Imprimir (contrato), Guia de entrega e Guia de retirada (quando aplicável).' }]) },
+ { t: 'Contrato: campos (1/2)', r: () => dhd('CONTRATO: CAMPOS A PREENCHER', 'Dados do contrato, produtos e serviços e transporte') + dfields([
+   { h: 'DADOS DO CONTRATO', f: ['Empresa', 'Medição', 'Exige Empenho', 'Doação', 'Tipo*', 'Regime*', 'Cliente*', 'Contato', 'Departamento', 'Telefone', 'E-mail principal', 'E-mail NF-e', 'E-mail medição', 'Vendedor', '% Comissão'], k: 2 },
+   { h: 'PRODUTOS E SERVIÇOS', f: ['Produto ou serviço', 'Unidade', 'Qtde', 'Preço', 'Desconto', 'Observação do item'], k: 1 },
+   { h: 'TRANSPORTE', f: ['Modalidade do frete*', 'Transportadora', '~Entrega', 'Data prevista', 'Janela início', 'Janela fim', '~Retirada', 'Data prevista', 'Solicitação de retirada', 'Janela início', 'Janela fim', 'Motivo da retirada', '~Local', 'Responsável pelo recebimento', 'Telefone', 'CEP, endereço, número, bairro, cidade e estado', 'Referência'], k: 2 }
+  ], '1.35fr .7fr 1.5fr') + dnote('Preencha todos os campos. O contrato alimenta a programação, a nota e a cobrança: o que ficar em branco ou errado se repete nas etapas seguintes. Os campos marcados com * são obrigatórios.') },
+ { t: 'Contrato: campos (2/2)', r: () => dhd('CONTRATO: CAMPOS A PREENCHER', 'Programação, financeiro e dados que abrem pelo tipo do contrato') + dfields([
+   { h: 'PROGRAMAÇÃO', f: ['Rota*', 'Tipo*', 'Patrimônio*', 'Tipo de busca', 'Frequência', 'Data', 'Período', 'Qtde', 'Observação'], k: 1 },
+   { h: 'FINANCEIRO', f: ['Modo de geração*', 'Forma*', 'Condição*', 'Centro de custo*', 'Pagamento antecipado obrigatório'], k: 1 },
+   { h: 'EVENTO OU OBRA (PELO TIPO)', f: ['~Tipo evento', 'Descrição do evento*', 'Data inicial*', 'Data final*', 'Código de identificação do evento', 'Dias e período de utilização', 'Dias e período de higienização', '~Tipo obra', 'Código da obra', 'Inscrição imobiliária', 'CEI / CNO', 'Reforma civil'], k: 1 },
+   { h: 'EMPENHO (SE EXIGIR)', f: ['Número da nota de empenho*', 'Data de emissão', 'Ano / exercício', 'Tipo de empenho', 'Modalidade / processo de origem', 'Unidade gestora / órgão pagador', 'CNPJ pagador', 'Nome do fiscal / gestor', 'Matrícula do fiscal', 'Contato do fiscal', 'Fonte de recurso / dotação orçamentária'], k: 1 }
+  ], '1fr .9fr 1.15fr 1.15fr') + dnote('Os campos marcados com * são obrigatórios. Mas preencha todos: quanto mais completo o contrato, menos retrabalho na programação, no faturamento e na cobrança.') },
  { t: 'Assinatura, guias e programação', r: () => dhd('CONTRATO DE LOCAÇÃO', 'Assinatura, guias e escala: fechando a parte comercial') + dzig([
-   { h: 'ASSINATURA DIGITAL', t: 'Sugestão: use uma plataforma de assinatura digital, como a D4Sign (uso sugestivo, fora do sistema). Envie o documento ao cliente, ao responsável da empresa e a duas testemunhas, escolhendo a ordem de envio e o modelo.' },
+   { h: 'ASSINATURA DIGITAL', t: 'Sugestão: use uma plataforma de assinatura digital, como a D4Sign (uso sugestivo, fora do sistema). Envie o documento ao cliente, ao responsável da empresa e a duas testemunhas, escolhendo a ordem de envio e o texto conforme o modelo da empresa.' },
    { h: 'ASSINATURA', t: 'Copie o link e envie ao cliente por e-mail e WhatsApp, com o texto padrão.' },
-   { h: 'GUIAS DE ENTREGA / RETIRADA', t: 'Colocar o impresso das guias na pasta sanfonada, por data.' },
-   { h: 'PROGRAMAÇÃO / ESCALA', t: 'Lançar no relatório de escala de serviços, atento ao tipo, e marcar um X na data correspondente da programação.' }]) },
- { t: 'Operacional', r: () => ddiv('OPERACIONAL', DKC[2], 'O gestor da operação planeja, distribui, acompanha e finaliza.', ['Análise de O.S.', 'Rota', 'Equipe', 'Execução', 'Gestão do dia']) },
+   { h: 'GUIAS DE ENTREGA / RETIRADA', t: ['Enviar ao departamento os impressos das guias ou imprimir conforme a necessidade da empresa.', 'Obs.: é possível imprimir também pela ordem de serviço.'] },
+   { h: 'ACOMPANHAMENTO COMERCIAL', t: 'Na tela de contrato é possível acompanhar, por status, os contratos que estão aguardando a conclusão das instalações e retiradas. Assim, o comercial pode cobrar o operacional, caso conste pendente.' }]) },
+ { t: 'Operacional', r: () => ddiv('OPERACIONAL', DKC[2], 'O gestor da operação planeja, distribui, acompanha e finaliza.', ['Análise de O.S.', 'Ordem de Serviços', 'Equipe', 'Execução', 'Gestão do dia']) },
  { t: 'Operacional: passo a passo', r: () => dhd('OPERACIONAL', 'O gestor da operação planeja, distribui, acompanha e finaliza') + dzig([
    { h: 'ANÁLISE DE O.S.', t: 'Home › Serviço › Análise de OS. Escolha a data e a rota, pesquise e visualize a demanda de serviços (instalação, manutenção, sucção, troca, retirada...).' },
    { h: 'GERAR ROTA', t: 'Após a análise, clique em Gerar. Aba Dados da ordem de serviço, aba Ordens de Serviço Contrato e Salvar.' },
@@ -1192,7 +1207,20 @@ const SLIDES = [
    { h: 'DISTRIBUIÇÃO DA EQUIPE', t: 'Com a O.S. emitida, clique em Imprimir e delegue à equipe.' },
    { h: 'ACOMPANHAR EXECUÇÃO', t: 'Abra a O.S. em aberto, aba Ordens de Serviço: horário de chegada e saída, km e volume (se não se aplica, deixe zerado). Ao finalizar a O.S., ela fica apta a ser faturada.' },
    { h: 'GESTÃO DO DIA', t: 'No fim do dia, analise o que ficou sem fazer, planeje o encaixe com o comercial para a próxima data possível e altere a programação no contrato.' }]) },
- { t: 'Faturamento', r: () => ddiv('FATURAMENTO', DKC[3], 'O que foi contratado e executado, com a O.S. finalizada, vira nota e fatura e segue para a cobrança.', ['Análise de faturamento', 'NFS-e e fatura', 'NF-e', 'Envio ao cliente']) },
+ { t: 'Ordem de serviço: como fazer', r: () => dhd('ORDEM DE SERVIÇO: COMO FAZER', 'Menu › Serviços: da análise da demanda até finalizar a O.S.') + dzig([
+   { h: 'ANÁLISE DE O.S.', t: 'Menu › Serviços › Análise de OS. Escolha a Data, o Tipo e a Rota do dia. Se precisar, use Mais filtros (contrato, cliente) e Situação do contrato. Confira os totais.' },
+   { h: 'GERAR A O.S.', t: 'Clique em Gerar. Confira Data, Rota, Motorista, Veículo e os totais e clique em Confirmar geração da ordem de serviço.' },
+   { h: 'DADOS DA O.S.', t: 'Em Dados, confira Tipo, Data de saída, Frota, Veículo primário e Motorista. Informe auxiliar, horários e quilometragem e clique em Salvar.' },
+   { h: 'SERVIÇOS', t: 'Na aba Serviços, inclua itens manuais (contrato, tipo, produto e qtde) se precisar e aponte a execução: Realizado ou Não realizado, um a um ou em lote.' },
+   { h: 'IMPRIMIR', t: 'Use Imprimir para o impresso da O.S. e Guia de instalação ou Guia de retirada para imprimir uma via. Delegue à equipe.' },
+   { h: 'FINALIZAR', t: 'Só finalize depois que a rota for concluída e o apontamento da execução estiver completo. A O.S. finalizada é o que libera o faturamento.' }]) },
+ { t: 'Ordem de serviço: campos', r: () => dhd('ORDEM DE SERVIÇO: CAMPOS', 'O que preencher ou olhar na análise e na O.S.') + dfields([
+   { h: 'ANÁLISE DE O.S. (PESQUISAR)', f: ['Data', 'Tipo', 'Rota', 'Situação do contrato', 'Contrato', 'Cliente', 'Pedido cliente', '~Para olhar', 'Total de contratos', 'Total de instalação', 'Total de manutenção', 'Total de retirada'], k: 1 },
+   { h: 'DADOS DA O.S.', f: ['Data de emissão*', 'Tipo*', 'Data de saída*', 'Frota*', 'Veículo primário*', 'Veículo secundário', 'Motorista*', 'Auxiliar', 'Auxiliar extra', 'Hora prevista de saída', 'Hora de saída', 'Hora prevista de chegada', 'Hora de chegada', 'Quilometragem inicial', 'Quilometragem final', 'Observação'], k: 2 },
+   { h: 'SERVIÇOS (APONTAR)', f: ['Contrato', 'Tipo', 'Produto', 'Qtde', 'Realizado ou não realizado', 'Observação', '~Para olhar', 'Pendentes', 'Realizado', 'Não realizado'], k: 1 },
+   { h: 'CHECKLIST E DESPESAS (SE HOUVER)', f: ['~Checklist', 'Inspeção de veículo e material (saída e chegada)', 'Refeições', 'Verificação da O.S.', '~Despesas', 'Fornecedor*', 'Valor total*', 'Forma de pagamento*', 'Condição de pagamento*', 'Centro de custo'], k: 1 }
+  ], '1fr 1.7fr .9fr 1.1fr') + dnote('Os campos com * são obrigatórios. Finalizar a O.S. só depois da execução completa: é ela que libera o faturamento.') },
+ { t: 'Faturamento', r: () => ddiv('FATURAMENTO', DKC[3], 'O que foi contratado e executado, com a O.S. finalizada, é base para gerar o faturamento, que segue para a cobrança.', ['Análise de faturamento', 'NFS-e e fatura', 'NF-e', 'Envio ao cliente']) },
  { t: 'Emissão de notas: fatura', r: () => dhd('EMISSÃO DE NOTAS "FATURA"', 'Análise de faturamento') + dcols([
    { h: 'MENU', t: 'Home › Faturamento › Nota fiscal de serviço eletrônica › Análise de faturamento.' },
    { h: 'NOVO', t: 'Preencha datas, tipo e nº do contrato e pesquise. Só aparece o que tem O.S. finalizada. Fature pelos botões verdes ou agrupe contratos pelos botões do topo.' },
@@ -1209,8 +1237,12 @@ const SLINKS = {
  'Como os módulos se conectam': [['Funcionalidade dos menus', '#/menus']],
  'Comercial': [['Guia Prático: Comercial', '#/areas/comercial']],
  'Contrato de locação': L3('contrato').concat([['Guia Prático: Comercial', '#/areas/comercial']]),
+ 'Contrato: campos (1/2)': L3('contrato'),
+ 'Contrato: campos (2/2)': L3('contrato'),
  'Assinatura, guias e programação': L3('contrato').concat([['Guia Prático: Comercial', '#/areas/comercial']]),
  'Operacional': [['Guia Prático: Operacional', '#/areas/operacional']],
+ 'Ordem de serviço: como fazer': L3('servicos').concat([['Guia Prático: Operacional', '#/areas/operacional']]),
+ 'Ordem de serviço: campos': L3('servicos'),
  'Operacional: passo a passo': L3('servicos').concat([['Guia Prático: Operacional', '#/areas/operacional']]),
  'Faturamento': [['Guia Prático: Faturamento', '#/areas/faturamento']],
  'Emissão de notas: fatura': L3('faturamento').concat([['Guia Prático: Faturamento', '#/areas/faturamento']]),

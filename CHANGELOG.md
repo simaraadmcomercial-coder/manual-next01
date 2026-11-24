@@ -1,5 +1,18 @@
 # Versões do Manual Next01
 
+## v2.30
+- Apresentação, slide Assinatura, guias e programação: textos revisados (assinatura digital com texto conforme o modelo da empresa; guias enviadas ao departamento ou impressas conforme a necessidade, também pela ordem de serviço); removido "Programação / Escala"; novo item "4. Acompanhamento comercial".
+- Operacional (abertura): chip "Rota" trocado por "Ordem de Serviços".
+- Dois slides novos do Operacional, com base no módulo Serviços do manual: "Ordem de serviço: como fazer" e "Ordem de serviço: campos" (obrigatórios com *). Agora são 17 slides.
+- Faturamento (abertura): texto "é base para gerar o faturamento, que segue para a cobrança".
+
+## v2.29
+- Apresentação: dois slides novos depois do Contrato de locação, com os **nomes dos campos a preencher** do contrato (tirados das telas do manual): Dados do contrato, Produtos e Serviços, Transporte, Programação, Financeiro, Evento/Obra e Empenho. Campos obrigatórios marcados com * e em negrito. Agora são 15 slides.
+- Slide 4: Financeiro recebe "Notas e boletos emitidos" e entrega "Baixa, fluxo de caixa e conciliação".
+
+## v2.28
+- Slide 2 (Fluxograma da rotina): texto do Faturamento trocado pelo texto da consultora (análise das O.S. confirmadas; medição para aprovação antes da emissão, ou emissão direta para cliente tranquilo).
+
 ## v2.27
 - Aba **Apresentação** refeita no visual do manual (faixa azul-marinho com logo, cartões brancos com borda colorida, vermelho de destaque, mesma fonte). Logo da Simara Lobui removido.
 - Slide 2 refeito como fluxograma fluido (cadastro como base, 5 setores em arco, setas e rótulos do que passa de um para o próximo).
