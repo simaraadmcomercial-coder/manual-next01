@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.33
+- Manual: telas e passo a passo do Financeiro (Conta financeira, Forma de pagamento, Condição de pagamento, Caixa e banco, Contas a pagar, Contas a receber), com dados sensíveis borrados.
+- Manual: módulos com muitos submenus passam a mostrar uma caixinha por submenu; ao clicar, abre as telas daquele item. O PDF continua completo.
+- Nada do Financeiro na Apresentação (a pedido).
+
 ## v2.32
 - Guia Prático: novo quadro "APP Rotas" (Em preparação).
 - Apresentação: novo slide "A rotina em 5 ações" (Orçamento > Contrato > Ordem de serviço > Faturar > Receber).
