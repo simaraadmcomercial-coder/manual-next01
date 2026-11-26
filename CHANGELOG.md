@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.37
+- Faturamento: novas caixinhas Contratos para faturamento (conferência de pendências) e Emitir boleto, ambas em preparação; Gestão de medições separada.
+- Dia de fechamento: boa prática na Análise de faturamento e orientação no Contrato (tela e botões) e no Guia Prático Comercial › Contrato mensal (padrão 1; outro período usa o primeiro dia; antecipado com lembrete na agenda de renovação).
+- Gestão de medições: medição cancelada não some, fica no histórico com o motivo (passo, pin, boa prática e Dúvidas frequentes).
+
 ## v2.36
 - Gestão de medições (só no Manual): aviso "Módulo em adaptação" em Boa prática e pontos de atenção (passo a passo vai até Liberar para faturamento; depois volta à Análise para faturar; vincula e vira Faturada; provisório).
 
