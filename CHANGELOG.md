@@ -1,5 +1,12 @@
 # Versões do Manual Next01
 
+## v2.34
+- Financeiro: removido o bloco 1.4 (Cadastros Financeiros, Estoque Inicial e Frota).
+- Caixinhas: orientação abaixo ("Se é a primeira vez por aqui, comece por...").
+- Financeiro › Cobranças bancárias (remessas, nova remessa, títulos da remessa, Portal do sacado). Rascunho: regras aguardam o gestor do sistema.
+- Gestão de medição reescrita (manual, Guia Prático e slide): gerar com os filtros da análise, confirmar, enviar o PDF por e-mail (manual), 2 dias corridos contados do envio, aprovar, faturar. Telas serão reenviadas.
+- Gestão de medições: telas reais (lista, filtros, gerar, medição, conferir, e-mail, mais opções) com pins; botão Conferir; travas previstas após validação; cancelar medição.
+
 ## v2.33
 - Manual: telas e passo a passo do Financeiro (Conta financeira, Forma de pagamento, Condição de pagamento, Caixa e banco, Contas a pagar, Contas a receber), com dados sensíveis borrados.
 - Manual: módulos com muitos submenus passam a mostrar uma caixinha por submenu; ao clicar, abre as telas daquele item. O PDF continua completo.
