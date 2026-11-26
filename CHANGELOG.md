@@ -1,5 +1,14 @@
 # Versões do Manual Next01
 
+## v2.40
+- Frota completa: Tipo de veículo, Veículo e Rota com telas, pins e passo a passo (Finaliza instalação, feiras livres).
+- Regionalidade das rotas (Comercial e Operacional): observação no Guia Prático (Comercial e Operacional), na Apresentação e na Rota.
+- Caixinhas: "1 tela" e "1 passo" no singular.
+- Frota: módulo criado com Menu Frota, Tipo de veículo, Veículo (ambos em preparação) e Rota (importância de definir as rotas, nomenclatura e checkbox de finalização da instalação pela O.S.; feiras livres sem seleção).
+
+## v2.39
+- Emitir boleto: imagem do botão + Nova remessa com pin. Financeiro › Cobranças bancárias: foco em emitir boletos, com o mesmo passo a passo e as telas da remessa e do Boleto (mantido nos dois lugares).
+
 ## v2.38
 - Faturamento › Contratos para faturamento: telas (menu, filtros, Mostrar somente a faturar, linhas com Sim/Não e Instalar) com pins; mostra contratos pendentes de instalação. Rascunho até o passo a passo oficial.
 - Faturamento › Emitir boleto: caminho (Financeiro › Cobranças bancárias), telas da Nova remessa e passo a passo. Inclui o pós-salvar: número da remessa, Download remessa e Boleto (PDF).
