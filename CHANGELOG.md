@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.36
+- Gestão de medições (só no Manual): aviso "Módulo em adaptação" em Boa prática e pontos de atenção (passo a passo vai até Liberar para faturamento; depois volta à Análise para faturar; vincula e vira Faturada; provisório).
+
 ## v2.35
 - Análise de faturamento: explicada como tela viva; passo a passo refeito (empresas em Mais filtros, cliente opcional, Buscar/Enter, conferência, botões verdes individuais × botões do topo agrupados, Imprimir/Ctrl+P). Atualizado no Manual, no Guia Prático e no slide.
 - Removida a frase "substitui a antiga tela viva".
