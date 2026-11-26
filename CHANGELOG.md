@@ -1,5 +1,12 @@
 # Versões do Manual Next01
 
+## v2.35
+- Análise de faturamento: explicada como tela viva; passo a passo refeito (empresas em Mais filtros, cliente opcional, Buscar/Enter, conferência, botões verdes individuais × botões do topo agrupados, Imprimir/Ctrl+P). Atualizado no Manual, no Guia Prático e no slide.
+- Removida a frase "substitui a antiga tela viva".
+- Dia de fechamento destacado na Análise de faturamento e no Gerar medições.
+- Faturamento: caixinha Cadastros (Regra fiscal + Código de serviço) e caixinha Gerar nota avulsa (NFS-e, Fatura de locação, NF-e). Suporte a agrupar caixinhas (campo g).
+- Análise de faturamento: passo a passo da Fatura de locação e da NFS-e (abrem direto em Dados da nota) e orientação de finalizar, salvar o PDF no servidor e enviar ao cliente (junto ou individual). Manual e Guia Prático.
+
 ## v2.34
 - Financeiro: removido o bloco 1.4 (Cadastros Financeiros, Estoque Inicial e Frota).
 - Caixinhas: orientação abaixo ("Se é a primeira vez por aqui, comece por...").
