@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.38
+- Faturamento › Contratos para faturamento: telas (menu, filtros, Mostrar somente a faturar, linhas com Sim/Não e Instalar) com pins; mostra contratos pendentes de instalação. Rascunho até o passo a passo oficial.
+- Faturamento › Emitir boleto: caminho (Financeiro › Cobranças bancárias), telas da Nova remessa e passo a passo. Inclui o pós-salvar: número da remessa, Download remessa e Boleto (PDF).
+
 ## v2.37
 - Faturamento: novas caixinhas Contratos para faturamento (conferência de pendências) e Emitir boleto, ambas em preparação; Gestão de medições separada.
 - Dia de fechamento: boa prática na Análise de faturamento e orientação no Contrato (tela e botões) e no Guia Prático Comercial › Contrato mensal (padrão 1; outro período usa o primeiro dia; antecipado com lembrete na agenda de renovação).
