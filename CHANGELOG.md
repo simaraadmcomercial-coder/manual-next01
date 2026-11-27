@@ -1,5 +1,12 @@
 # Versões do Manual Next01
 
+## v2.45 — Guia Prático (Comercial em andamento)
+- Contrato mensal: Pedido ao lado do Tipo; abas Dados da obra e Observações (três campos explicados); Programação sem sugestão de produtos (digitar); Modo de geração "Tudo na nota fiscal"; Dia de fechamento reforçado como data base do início do faturamento.
+- "Assinatura e guias": relatório de escala virou sugestão opcional; sem integração com plataforma de assinatura (ou PDF manual); guias vão para a equipe e, com o APP, a confirmação será online; link para as telas no Manual.
+- Removidas as menções obrigatórias ao relatório de escala nas rotinas e no slide.
+- 1º Contato: caixa "Regra de ouro".
+- Frase de eventos particulares guardada para o guia do contrato de evento (fora do manual).
+
 ## v2.44 — Guia Prático (Comercial em andamento)
 - Caixa "Situação comum": negrito agora aparece (antes mostrava ** literal) e inclui que o orçamento pode ser feito sem cadastro, só com o nome no campo Empresa, abaixo de Cliente.
 - Guia Prático › Comercial › Orçamento de locação reescrito como fala de treinamento (6 passos), com link para as telas no Manual no lugar do "espaço reservado".
