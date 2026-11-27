@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.49
+- Encerramento: passo "Como inativar" (acessar o contrato e clicar no botão vermelho Inativar).
+- Contrato de evento: rotina própria, sem obra — Orçamento de evento (Dados do evento, Cadastrar evento, montagem e desmontagem), Contrato de evento (Dados do evento, aba Empenho, Transporte com janela ou específico, Programação, Financeiro) e Assinatura e guias.
+
 ## v2.48
 - Encerramento: faturamento antecipado = Comercial encerra e inativa; pós-evento = Faturamento encerra (checkbox) e inativa. Retiradas as frases de duplicidade financeira desta rotina.
 - Duplicidade financeira: observação no Contrato (aba Financeiro) e em Financeiro › Contas a receber.
