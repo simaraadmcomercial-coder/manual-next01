@@ -376,18 +376,34 @@ const MODULES = [
       {t:'Finalizar', s:['Clique em **Finalizar**. Só use depois que a rota for concluída e o apontamento da execução estiver completo.']}]}
   ]},
   { id:'faturamento', t:'Faturamento', cor:'#D62828', d:'Análise, Fatura de Locação, NFS-e, NF-e e envio ao cliente.', ent:ent('Faturamento'), con:[], faz:[
-    { t:'Emissão de notas: Fatura (locação) e NFS-e (serviço) pela Análise de faturamento', obj:'Faturar a partir dos contratos, pela Análise de faturamento.', steps:[
-      {t:'Entender a tela', s:['A Análise de faturamento é uma **tela viva**: muda a cada pesquisa, conforme qualquer movimentação no Comercial ou na ordem de serviço.']},
-      {t:'Acessar a análise', s:['Acesse **Menu › Faturamento › Nota fiscal de serviço › Análise de faturamento** e clique em **Nova análise**.']},
-      {t:'Pesquisar', s:['Escolha o **Período** a faturar e o **Tipo de venda** (obrigatório).','Em **Mais filtros**, selecione as empresas (pode ser mais de uma) e preencha o **Dia de fechamento**: o sistema traz todos os contratos vinculados ao dia informado.','O cliente é opcional: sem cliente, traz todos os ativos e aptos a faturar.','Clique em **Buscar** ou tecle **Enter**.']},
+    { t:'Conferir contratos para faturar', obj:'Saber, antes de faturar, se existe algum contrato pendente.', link:['#/menus/faturamento/conhecer','Veja as telas no Manual: Menu › Faturamento →'], steps:[
+      {t:'Por onde começar', s:['O primeiro passo do faturamento é a **conferência**. Siga por **Menu › Faturamento › Nota fiscal de serviço › Contratos para faturamento**.']},
+      {t:'Pesquisar', s:['Escolha o **Período de faturamento** > se quiser, filtre por **Status**, **Cliente** e **Tipo de venda** > ligue **Mostrar somente a faturar** (**NF serviço** e/ou **NF locação**) para ver só os contratos sem nota no período.']},
+      {t:'Conferir a lista', s:['Veja, em cada linha, o contrato, o cliente, a situação e se já existe **nota finalizada** no período (**Sim**, com o número da nota, ou **Não**). Repare também nos contratos **pendentes de instalação** (situação **Instalar**): eles só poderão ser faturados depois que o Operacional resolver a instalação.']},
+      {t:'Seguir para o faturamento', s:['Para faturar, use o botão **Faturar** da linha ou o atalho **Análise de faturamento**, no canto superior direito.']}],
+      tips:['Contrato pendente de instalação aparece aqui: resolva a instalação com o Operacional antes de faturar.'] },
+    { t:'Gerar a medição (quando o cliente exige)', obj:'Enviar a medição ao cliente e liberar a emissão.', link:['#/menus/faturamento/conhecer','Veja as telas no Manual: Menu › Faturamento →'], steps:[
+      {t:'Gerar a medição', s:['Abra a **Gestão de medições** > clique em **Gerar medições** > informe os **mesmos filtros da Análise de faturamento** e o cliente (sem cliente, gera para todos) > e preencha o **Dia de fechamento**, para o sistema trazer todos os contratos vinculados ao dia informado.']},
+      {t:'Conferir', s:['Abra a medição, confira o resumo e clique em **Conferir**. Isso libera o **Enviar e-mail** e o **Imprimir**.']},
+      {t:'Enviar ao cliente', s:['Baixe o PDF e envie pelo seu e-mail (o envio pelo sistema ainda não está configurado).']},
+      {t:'Aprovação', s:['Com o envio pelo sistema, o cliente aprova ou recusa pelo link do e-mail. Envio manual ou cliente sem resposta: libere manualmente em **Mais opções › Liberar para faturamento**. A aprovação automática após 2 dias corridos do envio está **em preparação**.']},
+      {t:'Faturar', s:['Na Análise de faturamento a medição aparece como aprovada. Agora é só emitir a Fatura de locação ou a NFS-e.']}],
+      tips:['A empresa define se **todos os clientes** recebem medição ou só quem exige aprovação antes de faturar.', 'Este módulo está em adaptação: o passo a passo vai até **Liberar para faturamento**. Depois, volte na Análise e fature; ao faturar, o sistema vincula e muda o status para **faturado**.', 'Travas previstas após a validação: contrato sem O.S. de instalação não entra na medição; O.S. aberta impede gerar; depois de gerada, o Operacional não finaliza O.S. nem lança com data retroativa. Acompanhe o Operacional todo dia.', 'Medição cancelada não some: fica no histórico, com o motivo.'] },
+    { t:'Faturar pela Análise: Fatura de locação e NFS-e', obj:'Faturar a partir dos contratos, pela Análise de faturamento.', link:['#/menus/faturamento/conhecer','Veja as telas no Manual: Menu › Faturamento →'], steps:[
+      {t:'Por onde começar', s:['A **Análise de faturamento** é uma **tela viva**: muda a cada pesquisa, conforme qualquer movimentação no Comercial ou na ordem de serviço. Siga por **Menu › Faturamento › Nota fiscal de serviço › Análise de faturamento** e clique em **Nova análise**.']},
+      {t:'Pesquisar', s:['Escolha o **Período** a faturar > o **Tipo de venda** (obrigatório) > em **Mais filtros**, selecione as empresas e preencha o **Dia de fechamento**, para o sistema trazer todos os contratos vinculados ao dia informado > o cliente é opcional: sem cliente, traz todos os ativos e aptos a faturar > clique em **Buscar** ou tecle **Enter**.']},
       {t:'Conferir na tela', s:['Confira se veio o período correto, se os valores estão certos e se falta alguma informação.']},
-      {t:'Faturar', s:['Pelos botões verdes de cada contrato, **Faturar locação** (fatura) ou **Faturar serviço** (NFS-e). É individual, não agrupa.','Cliente com faturamento agrupado: pesquise só esse cliente e use **Faturar locações** ou **Faturar serviços** na parte superior esquerda, que agrupam.']},
-      {t:'Fatura de locação (Faturar locação)', s:['A fatura abre **direto na aba Dados da nota**, sem o caminho longo pelo menu. Confira **Dados da nota**, **Serviços** e **Financeiro**.','Gere as parcelas (ou inclua manualmente, se parcelado) e clique em **Salvar**.']},
-      {t:'NFS-e (Faturar serviço)', s:['A nota abre **direto na aba Dados da NFS-e**. Confira **Dados da NFS-e**, **Serviços** e **Financeiro**.','Clique em **Salvar** e depois em **Enviar NFS-e**. Na tela de confirmação, valide para liberar o PDF.']},
-      {t:'Finalizar e enviar ao cliente', s:['Conferidas as informações em todas as abas, finalize e **acesse a nota para salvar o PDF**. Salve no **servidor da empresa**.','Para enviar tudo junto (notas e boleto), faça o envio **manual pelo seu e-mail**. Ou envie cada nota pelo botão **Enviar**: o cliente receberá cada nota **individualmente**.']},
-      {t:'Espelho da medição', s:['Para enviar ao cliente o que aparece na tela (espelho da medição), clique em **Imprimir** ou use **Ctrl + P** e salve o PDF.']},
-      {t:'Enviar ao cliente', s:['Após emitir o boleto, salve e envie ao cliente por e-mail e WhatsApp.']}],
-      tips:['A análise só computa serviços vinculados a uma O.S. finalizada: se algo não aparecer para faturar, confira se a O.S. foi finalizada.','Os PDFs gerados devem ser salvos no servidor da empresa.','Com a reforma tributária, esta parte de emissão de nota passará por uma segunda revisão.'] },
+      {t:'Faturar', s:['Pelos botões verdes de cada contrato: **Faturar locação** (fatura) ou **Faturar serviço** (NFS-e). É individual, não agrupa. Cliente com faturamento agrupado: pesquise só esse cliente e use **Faturar locações** ou **Faturar serviços**, na parte superior esquerda, que agrupam.']},
+      {t:'Fatura de locação', s:['A fatura abre **direto na aba Dados da nota**. Confira **Dados da nota** > **Serviços** > **Financeiro** > gere as parcelas (ou inclua manualmente, se parcelado) > **Salvar**.']},
+      {t:'NFS-e', s:['A nota abre **direto na aba Dados da NFS-e**. Confira **Dados da NFS-e** > **Serviços** > **Financeiro** > **Salvar** > **Enviar NFS-e**. Na tela de confirmação, valide para liberar o PDF.']},
+      {t:'Finalizar e enviar', s:['Conferidas as informações em todas as abas, finalize e **acesse a nota para salvar o PDF** no **servidor da empresa**. Para enviar tudo junto (notas e boleto), faça o envio **manual pelo seu e-mail**. Ou envie cada nota pelo botão **Enviar**: o cliente receberá cada nota **individualmente**.']},
+      {t:'Espelho da medição', s:['Para enviar ao cliente o que aparece na tela (espelho da medição), clique em **Imprimir** ou use **Ctrl + P** e salve o PDF.']}],
+      tips:['A análise só computa serviços vinculados a uma **O.S. finalizada**: se algo não aparecer para faturar, confira se a O.S. foi finalizada.', '**Dia de fechamento:** é a data base que indica o dia em que começa o faturamento do cliente. O Comercial determina o período de cobrança; o padrão é dia 1.', 'Os PDFs gerados devem ser salvos no servidor da empresa.', 'Com a reforma tributária, esta parte de emissão de nota passará por uma segunda revisão.'] },
+    { t:'Emitir o boleto', obj:'Gerar a remessa e o boleto em PDF para o cliente.', link:['#/menus/faturamento/conhecer','Veja as telas no Manual: Menu › Faturamento →'], steps:[
+      {t:'Nova remessa', s:['Siga por **Menu › Financeiro › Cobranças bancárias** > clique em **Nova remessa** > escolha o **Banco** (obrigatório) > informe o **Vencimento inicial** e o **Vencimento final** > se precisar, escolha um **cliente** (em branco, vêm todos os da lista dos emitidos no dia).']},
+      {t:'Buscar e salvar', s:['Clique em **Buscar títulos** > confira a lista em **Títulos da remessa** > **Salvar**.']},
+      {t:'Baixar a remessa e o boleto', s:['Depois de salvar, a nova remessa vira uma **remessa** com número: clique no **número da remessa gerada** > **Download remessa**, para enviar ao financeiro > e em seguida **Boleto**, para acessar o PDF. Salve o arquivo e envie ao cliente por e-mail e WhatsApp.']}],
+      tips:['Use o filtro de vencimento para evitar lotes grandes (o sistema recomenda até 500 boletos).'] },
     { t:'Emissão de notas avulsas (manual)', obj:'Faturar sem passar pela Análise de faturamento.', steps:[
       {t:'Acessar', s:['Acesse **Menu › Faturamento › Nota fiscal de serviço › NFS-e Movimentação**.']},
       {t:'Abrir a nota', s:['Clique em **Nova NFS-e** (serviço) ou em **Fatura locação** (locação).']},
@@ -407,13 +423,6 @@ const MODULES = [
       {t:'Evitar duplicidade financeira', s:['Ao vincular a nota ao contrato pelo botão **Faturar**, o sistema substitui o lançamento financeiro do contrato pelo da nota.','Se a forma de pagamento for alterada na nota, ou se a nota for avulsa ou pela Análise de faturamento, a substituição não ocorre: fica o lançamento do contrato e o da nota.']},
       {t:'Inativar', s:['Após o último faturamento, clique em **Inativar** (botão vermelho no contrato), somente com todas as etapas financeiras e operacionais concluídas.']}],
       tips:['Encerrar e inativar são etapas diferentes: o checkbox encerra, mas não inativa.','Quem fatura precisa saber se o evento já foi executado.','Reativar contrato inativo interfere em várias rotinas internas. Se o cliente desistir depois da inativação, faça um novo contrato.'] },
-    { t:'Gestão de medição', obj:'Enviar a medição ao cliente e liberar a emissão.', steps:[
-      {t:'Gerar a medição', s:['Abra a Gestão de medições, clique em **Gerar medições** e informe os **mesmos filtros da Análise de faturamento** e o cliente. Sem cliente, gera para todos.','Preencha o **Dia de fechamento**: o sistema traz todos os contratos vinculados ao dia informado.']},
-      {t:'Conferir', s:['Abra a medição, confira o resumo e clique em **Conferir**. Isso libera o **Enviar e-mail** e o **Imprimir**.']},
-      {t:'Enviar ao cliente', s:['Baixe o PDF e envie pelo seu e-mail (o envio pelo sistema ainda não está configurado).']},
-      {t:'Aprovação', s:['Com o envio pelo sistema, o cliente aprova ou recusa pelo link do e-mail.','Envio manual ou cliente sem resposta: libere manualmente em **Mais opções › Liberar para faturamento**.','A aprovação automática após 2 dias corridos do envio está **em preparação**.']},
-      {t:'Faturar', s:['Na Análise de faturamento a medição aparece como aprovada. Emita a Fatura de locação ou a NFS-e.']}],
-      tips:['Travas previstas após a validação: contrato sem O.S. de instalação não entra na medição; O.S. aberta impede gerar; depois de gerada, o Operacional não finaliza O.S. nem lança com data retroativa. Acompanhe o Operacional todo dia.','A Análise de faturamento é uma tela viva (muda a cada pesquisa). A medição congela o período para o cliente conferir.','Cliente que dispensa medição pode ter a emissão feita direto pela análise.'] },
     { t:'Antes de emitir: regra fiscal e código de serviço', obj:'Ter os cadastros fiscais prontos.', steps:[
       {t:'Regra fiscal', s:['Em **Menu › Faturamento › Cadastros › Regra fiscal**, cadastre o **Código**, o **CFOP** e os impostos.']},
       {t:'Código de serviço', s:['Em **Menu › Faturamento › Cadastros › Código de serviço**, cadastre o código, a classificação tributária e a descrição.']}],
@@ -433,6 +442,7 @@ const AREAS_LIST = [
  {id:'operacional',t:'Operacional',d:'Análise de O.S., equipe e acompanhamento da execução.'},
  {id:'faturamento',t:'Faturamento',d:'Emissão de notas e faturas e envio ao cliente.'},
  {id:'financeiro',t:'Financeiro',d:'Contas a receber e a pagar, fluxo de caixa e conciliação.'},
+ {id:'relatorios',t:'Relatórios gerenciais',d:'Indicadores e painéis para acompanhamento da gestão.'},
  {id:'approtas',t:'APP Rotas',d:'Rotas e execução da operação pelo aplicativo.'}
 ];
 
@@ -1143,9 +1153,19 @@ const opClose = () => block({ kicker:'Para fechar', title:'O dia só termina qua
     cols:[
       { h:'1. Demanda do cliente', items:['Fale com o **gestor antes de fazer**.','O gestor fala com o **Comercial** para saber se cabe no escopo do contrato.','Se for algo fora, o Comercial revê a negociação e reprograma, se necessário.'] },
       { h:'2. Antecipar o atendimento', items:['A equipe vai passar ao lado um dia antes da programação e quer antecipar.','Mesma regra: fale com o gestor antes.'] }],
-    quote:'Lembre-se sempre: <b>execução fora do lançamento no sistema não garante cobrança no faturamento</b>. Quem executar é <b>100% responsável</b> por registrar no sistema. Sem registro, a empresa perde dinheiro.' });
-const areaBody = x => x.id === 'comercial' ? comHub() : (x.id === 'operacional' ? opIntro() : '') + guidesOf(x.id).map((g, i) => guide(g, `${x.id}g${i}`)).join('') + (x.id === 'operacional' ? opClose() : '') || empty;
-const hasArea = x => x.id === 'comercial' || guidesOf(x.id).length;
+    quote:'Lembre-se sempre: <b>execução fora do lançamento no sistema não garante cobrança no faturamento</b>. Quem <b>autorizar</b> a execução é <b>100% responsável</b> por garantir o registro no sistema. Sem registro, a empresa perde dinheiro, pois o sistema <b>não rastreia</b> serviço feito fora do que foi programado.' });
+const relIntro = () => block({ kicker:'Indicadores', title:'Onde a gerência acompanha os resultados',
+    lead:'Aqui ficam os <b>relatórios de indicadores</b>, que a gerência acompanha nos <b>painéis</b> direcionados a cada função.',
+    cols:[{h:'Painéis direcionados a',items:['Gestor **Comercial**','Gestor de **Faturamento**','**Diretores**']}],
+    callout:['**Acesso dos supervisores de base:** quem decide é a **empresa**.','Vale lembrar que o **painel de O.S.** tem informações de **valores**, por isso a empresa define se os supervisores de base poderão ter acesso.'] });
+const fatIntro = () => block({ kicker:'Antes de começar', title:'A rotina do faturamento, do começo ao fim',
+    flow:['Conferir contratos para faturar','Medição (se o cliente exige)','Análise de faturamento','Fatura ou NFS-e','Boleto','Enviar ao cliente','Encerrar e inativar'],
+    lead:'O faturamento é o elo entre o que foi <b>vendido</b>, o que foi <b>executado</b> e o que será <b>recebido</b>. Por isso, ele depende de quem vem antes.',
+    callout:['O **Comercial** deixa o contrato bem preenchido: **Dia de fechamento**, **Medição** e **Modo de geração**.','O **Operacional** executa e **finaliza a O.S.**: a Análise de faturamento só computa o que está vinculado a uma O.S. finalizada.','Com isso em mãos, você confere, fatura, envia ao cliente e passa para o **Financeiro** receber.'] });
+const fatClose = () => block({ kicker:'Para fechar', title:'Quando algo não aparece para faturar',
+    callout:['Na maioria das vezes, o motivo está **antes** do faturamento. Confira:','**O.S. não finalizada:** avise o **Operacional**.','**Contrato pendente de instalação:** resolva a instalação com o **Operacional**.','**Dia de fechamento ou Medição:** revise com o **Comercial**.','Ao final, salve os PDFs no **servidor da empresa** e envie ao cliente. O **Financeiro** recebe a partir do que você emitiu.'] });
+const areaBody = x => x.id === 'relatorios' ? relIntro() : x.id === 'comercial' ? comHub() : (x.id === 'operacional' ? opIntro() : x.id === 'faturamento' ? fatIntro() : '') + guidesOf(x.id).map((g, i) => guide(g, `${x.id}g${i}`)).join('') + (x.id === 'operacional' ? opClose() : x.id === 'faturamento' ? fatClose() : '') || empty;
+const hasArea = x => x.id === 'comercial' || x.id === 'relatorios' || guidesOf(x.id).length;
 const FRASE = `<div class="frase"><p>Como a empresa trabalha <strong>É CULTURA INTERNA.</strong></p><p>O <strong>SISTEMA</strong> é o meio pelo qual o registro de formalidade acontece.</p></div>`;
 const areasTiles = () => `<ul class="tiles">${AREAS_LIST.map(x => `<li><a class="tile ${hasArea(x) ? '' : 'prep'}" href="#/areas/${x.id}"><h3>${x.t}</h3><p>${x.d}</p>${hasArea(x) ? '' : '<span class="bd">Em preparação</span>'}</a></li>`).join('')}</ul>`;
 const areasBody = () => AREAS_LIST.filter(hasArea).map(x => `<section class="area"><h2>${x.t}</h2><p class="d">${x.d}</p>${x.id === 'comercial' ? comPrint() : areaBody(x)}</section>`).join('');

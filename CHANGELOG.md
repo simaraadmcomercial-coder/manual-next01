@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.52
+- Operacional: lembrete final (quem autorizar a execução garante o registro; o sistema não rastreia serviço fora do programado).
+- Guia Prático › Faturamento redesenhado em ordem de rotina: abertura com o fluxo, Conferir contratos para faturar, Gerar a medição, Faturar pela Análise, Emitir o boleto, notas avulsas, NF-e, Encerrar/inativar, cadastros fiscais, e fechamento (quando algo não aparece para faturar).
+- Guia Prático: novo quadro "Relatórios gerenciais" (painéis para gestores Comercial, Faturamento e diretores; acesso dos supervisores de base definido pela empresa).
+
 ## v2.51
 - Operacional: complemento do comportamento (executar com excelência e recusar o atípico); Despesas como melhoria (pular para a etapa 5); atalhos para o Manual (Serviços) nos 4 guias.
 - Operacional: fechamento em 4 blocos (O dia só termina..., o que ficou sem fazer, comunicação é atendimento, demandas em campo e registro no sistema).
