@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.54
+- Faturamento/Comercial: critérios de faturamento na Observação (interno) (documentos para validar nota, fotos para medição); Comercial avisa o Faturamento por e-mail/WhatsApp após fechar o contrato; detalhe da O.S. lançada manualmente antecipando a execução (duplica).
+- Correção: legendas dos pontos das telas mostravam ** literal; agora em negrito.
+
 ## v2.53
 - Consulta de O.S. em aberto antes de faturar (Menu › Serviços › Ordem de serviço, período + status Aberto): Guia Prático (Conferir contratos, Faturar pela Análise, fechamento) e Manual (Contratos para faturamento, Análise de faturamento e Serviços › Ordem de serviço: pesquisa).
 - Faturamento: Encerrar e inativar mais enxuto (atuação do Faturamento) e observação do Comercial no evento antecipado; guia de cadastros fiscais removido, com observação sobre impostos; Dia de fechamento 0 (só para contrato que nunca aparece no faturamento, como doação); pendência de instalação: avisar o Comercial; medição sem a condição "quando o cliente exige"; atalhos para o Manual em todos os guias.
