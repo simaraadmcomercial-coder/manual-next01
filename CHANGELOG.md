@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.44 — Guia Prático (Comercial em andamento)
+- Caixa "Situação comum": negrito agora aparece (antes mostrava ** literal) e inclui que o orçamento pode ser feito sem cadastro, só com o nome no campo Empresa, abaixo de Cliente.
+- Guia Prático › Comercial › Orçamento de locação reescrito como fala de treinamento (6 passos), com link para as telas no Manual no lugar do "espaço reservado".
+- Guia Prático › Comercial › Contrato de locação reescrito na mesma lógica (a partir de Gerar contrato), com link para as telas.
+
 ## v2.43
 - Removidas as notas azuis de rascunho (avisos internos) das caixinhas; a lista do que falta validar fica na conversa.
 

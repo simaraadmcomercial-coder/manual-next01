@@ -103,7 +103,7 @@ details.m>summary,details.full>summary{cursor:pointer;font-weight:600;list-style
 .steps input:checked+.n{background:var(--c);color:#fff}.steps li.done .st{text-decoration:line-through;opacity:.6}.steps input:focus-visible+.n{outline:2px solid var(--red);outline-offset:2px}
 .steps ul{margin:6px 0 0 38px;padding-left:16px;color:var(--mut)}
 .tips{background:var(--sand);border-radius:10px;padding:12px 16px}.tips ul{margin:6px 0 0;padding-left:18px}
-.shot{border:2px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--mut);font-size:.85rem}
+.shot{display:block;text-decoration:none;border:2px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--mut);font-size:.85rem}
 .empty{color:var(--mut);padding:24px;text-align:center;background:var(--sf);border:1px dashed var(--line);border-radius:12px}
 .pager{display:flex;justify-content:space-between;margin-top:24px}.pager a{text-decoration:none;border:1.5px solid var(--line);background:var(--sf);padding:8px 18px;border-radius:999px;font-weight:500}
 .rh{font-size:1.3rem;margin-bottom:14px}.results{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
@@ -326,19 +326,20 @@ const ent = n => (MODS.find(m => m.nome === n) || {}).blocks || [];
 const MODULES = [
   { id:'cadastros', t:'Cadastros', cor:'#01135D', d:'Participantes, produtos, regras fiscais, financeiro, estoque e frota.', ent:[], con:FEATS, faz:[] },
   { id:'comercial', t:'Comercial', cor:'#00A859', d:'Do orçamento ao contrato assinado e programado.', ent:ent('Comercial'), con:[], faz:[
-    { t:'Orçamento de locação', obj:'Montar orçamentos para locações mensais e diárias.', steps:[
-      {t:'Novo orçamento', s:['Abra o **Orçamento de Locação** e clique em **Novo**.','Preencha os dados de acordo com o Tipo.']},
-      {t:'Produtos e serviços', s:['Inclua os produtos conforme a necessidade do cliente, com os valores.']},
-      {t:'Dados do transporte', s:['Identifique a base que vai atender, as datas de entrega e retirada, o contato e o local.']},
-      {t:'Dados do pagamento', s:['Informe a condição de pagamento e a forma de pagamento.']},
-      {t:'Salvar e enviar', s:['Após salvar, entre novamente no orçamento para imprimir, salvar no servidor e enviar ao cliente por e-mail e WhatsApp, formalizando a proposta.']}]},
-    { t:'Contrato de locação', obj:'Com o orçamento aprovado, elaborar o contrato.', steps:[
-      {t:'Acessar o orçamento', s:['Acesse o orçamento já emitido. Se ele ainda não foi gerado, volte à etapa anterior e faça o orçamento.']},
-      {t:'Gerar o contrato', s:['Clique no orçamento, escolha **Gerar contrato** e preencha os **Dados do contrato**.']},
-      {t:'Conferir produtos, serviços e transporte', s:['Na aba de produtos e serviços / transporte, confira itens, valores, datas e local.']},
-      {t:'Programação', s:['Programe os dias de entregas, manutenções e retiradas. Essa programação é a base da **Análise de O.S.** do Operacional.']},
-      {t:'Dados do pagamento', s:['Registre as condições negociadas com o cliente.','Eventos particulares: insira o financeiro quando não houver nota.','Contratos mensais: defina o dia de faturamento.']},
-      {t:'Confirmar e imprimir', s:['Após salvar, use os botões no alto da tela: **Imprimir** (contrato), **Guia de entrega** e **Guia de retirada** (quando aplicável).']}]},
+    { t:'Orçamento de locação', obj:'Montar orçamentos para locações mensais e diárias.', link:['#/menus/contrato/conhecer','Veja as telas de cada aba no Manual: Menu › Contrato › Orçamentos →'], steps:[
+      {t:'Por onde começar', s:['O orçamento é o ponto de partida do processo. Siga por **Menu › Contrato › Orçamentos** e clique em **Novo orçamento**. Vamos preencher uma aba de cada vez, na ordem: **Dados Orçamento**, **Produtos e Serviços**, **Transporte**, **Financeiro** e **Totais**.']},
+      {t:'Dados do orçamento', s:['Na primeira aba, escolha o **Tipo** (obra ou mensal), pois ele define o que o sistema vai pedir. Depois selecione o **Cliente** e o **Contato**. Se o cliente ainda não tem cadastro, sem problema: digite só o nome no campo **Empresa**, logo abaixo. Para fechar, informe o **Vendedor** responsável. Repare nos campos com **\***: são obrigatórios.']},
+      {t:'Produtos e serviços', s:['Agora vamos montar a proposta. Pesquise o **produto**, defina a **quantidade** e clique em **Adicionar**, repetindo para cada item. Fique atento ao **Valor**: se for **calculado**, o sistema faz a conta; se for **global**, deixe o valor em aberto aqui, porque ele só será informado na aba **Totais**. Não esqueça de incluir a **taxa de entrega e retirada** (individual ou já cobrada junto, em taxa única) e a **higienização semanal**, com ou sem.']},
+      {t:'Transporte', s:['Na aba **Transporte**, informe como o equipamento chega e volta: a **base** que vai atender, o **prazo de entrega** e a **data de retirada**, com as janelas de horário. Em obra ou evento, informe também o período de **montagem e desmontagem**. Termine com o **responsável pelo recebimento**, o telefone e o **endereço** com ponto de referência.']},
+      {t:'Financeiro e Totais', s:['Na aba **Financeiro**, escolha a **Forma de pagamento** e a **Condição de pagamento**, ambas obrigatórias. Depois vá à **Totais**, confira o resumo e, se houver, dê o **desconto geral**. Se o valor era global, é aqui que você informa o total.']},
+      {t:'Salvar e enviar', s:['Clique em **Salvar**. Depois entre novamente no orçamento e clique em **Imprimir** para salvar no servidor, e envie ao cliente por **e-mail** ou WhatsApp, formalizando a proposta.']}]},
+    { t:'Contrato de locação', obj:'Com o orçamento aprovado, elaborar o contrato.', link:['#/menus/contrato/conhecer','Veja as telas de cada aba no Manual: Menu › Contrato › Contratos →'], steps:[
+      {t:'Por onde começar', s:['Com a proposta aprovada pelo cliente, seguimos a mesma lógica do orçamento. Entre em **Menu › Contrato › Orçamentos**, abra o orçamento que foi aprovado e clique em **Gerar contrato**. O sistema já leva para o contrato o que foi montado, então você só confere e completa.']},
+      {t:'Dados do contrato', s:['Na primeira aba, confira o **Tipo**, o **Regime**, o **Cliente** e o **Contato**. Aqui o cadastro do cliente precisa estar completo. Se o orçamento foi feito só com o nome da empresa, este é o momento de cadastrar e vincular o cliente. Se o cliente tiver um número de pedido, preencha o campo **Pedido**, ao lado do **Tipo**. Ao escolher o **Tipo**, o contrato abre as abas **Dados da obra** e **Observações**. Em **Dados da obra**, preencha o **Código da obra**, a **Inscrição imobiliária**, o **CEI / CNO** e marque se é **Reforma civil** (Não se aplica, Sim ou Não). Em **Observações**, repare que são três campos: use a **Observação (impresso)** para registrar uma negociação atípica ou algo que a empresa pediu para constar no contrato; a **Observação (interno)** para escrever as particularidades da contratação; e a **Observação de faturamento** para colocar todos os dados que a empresa solicitar e que precisem constar no corpo da nota. Informe também o **Vendedor**.']},
+      {t:'Produtos e serviços e transporte', s:['Passe pelas abas **Produtos e Serviços** e **Transporte** apenas conferindo: itens, quantidades, valores, datas de entrega e retirada e o local. Se algo mudou na negociação, é aqui que se ajusta.']},
+      {t:'Programação', s:['Agora vem a parte que o Operacional vai usar: na aba **Programação**, escolha a **Rota** e programe **todos os serviços a serem realizados**: entregas, manutenções e retiradas, com a data e a frequência. Os itens de locação já aparecem como sugestão. Essa programação é a base da **Análise de O.S.**; por isso a Frota precisa estar cadastrada antes.']},
+      {t:'Totais e financeiro', s:['Em **Totais**, confira a composição e o valor do contrato. Em **Financeiro**, registre as condições negociadas: **Forma**, **Condição** e **Centro de custo**, além do **Modo de geração**. Eventos particulares: insira o financeiro quando não houver nota. Contratos mensais: defina o **Dia de fechamento**.']},
+      {t:'Confirmar e imprimir', s:['Clique em **Salvar** > **Confirmar** > e use os botões do alto da tela: **Imprimir** (contrato), **Guia de entrega** e **Guia de retirada**, quando aplicável.']}]},
     { t:'Assinatura, guias e escala', obj:'Formalizar o contrato e repassar a programação.', steps:[
       {t:'Assinatura digital', s:['**Sugestão:** use uma plataforma de assinatura digital, como a D4Sign (o uso é sugestivo, não faz parte do sistema).','Na plataforma, faça login e escolha **Enviar um documento**.','Insira o e-mail do cliente, do responsável da empresa e de duas testemunhas.','Selecione a ordem de envio e o modelo, e envie.']},
       {t:'Enviar o link ao cliente', s:['No e-mail do cliente, selecione e copie o link e envie por e-mail e WhatsApp com o texto padrão.']},
@@ -1007,7 +1008,7 @@ const primeiroBody = () => {
   return block({ kicker:'Ponto de partida', title:'Uma situação real', lead:'Recebi um contrato de um cliente ou estou prospectando um novo cliente. <strong>Por onde começa minha rotina dentro do sistema?</strong>' })
   + `<article class="block chunk"><div class="kicker">Primeiro passo</div><h3>Entenda o que você já tem em mãos</h3><p class="lead">A partir das respostas, a jornada dentro do sistema se orienta.</p><dl class="details">${q.map(x => `<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('')}</dl></article>`
   + block({ kicker:'Cadastro inicial', title:'O ideal é começar pelo cadastro', lead:'Para uma boa experiência dentro do sistema, o ideal é começar pelo cadastro, alimentando as informações cadastrais disponíveis.', details:[['Empresa e participantes','Veja em Funcionalidade dos menus › Cadastros.'],['Produtos e serviços','Veja em Funcionalidade dos menus › Produtos.']] })
-  + block({ kicker:'Situação comum', title:'E se o cliente ainda não conseguir fornecer todas as informações?', lead:'E se o contrato, em caso de aprovação, for cadastrado por outra frente ou por outro setor?', callout:['**Não tem problema!**','O sistema permite iniciar o processo por meio de um **orçamento**, sem a necessidade de ter todo o cadastro concluído naquele primeiro momento.'] })
+  + block({ kicker:'Situação comum', title:'E se o cliente ainda não conseguir fornecer todas as informações?', lead:'E se o contrato, em caso de aprovação, for cadastrado por outra frente ou por outro setor?', callout:['**Não tem problema!**','O sistema permite iniciar o processo por meio de um **orçamento**, sem a necessidade de ter todo o cadastro concluído naquele primeiro momento.','O orçamento pode ser feito **sem cadastro**: basta digitar o nome da empresa no campo **Empresa**, logo abaixo do campo **Cliente**.'] })
   + `<article class="block chunk"><div class="kicker">Caminhos possíveis</div><h3>Dois caminhos para a mesma negociação</h3><div class="cols"><div><h4>Com as informações em mãos</h4><ol class="flow">${['Cadastro','Orçamento','Contrato'].map(x => `<li><span>${x}</span></li>`).join('')}</ol></div><div><h4>Com informações incompletas</h4><ol class="flow">${['Orçamento','Aprovação','Cadastro completo','Contrato'].map(x => `<li><span>${x}</span></li>`).join('')}</ol></div></div><div class="callout"><p>O cadastro **não é uma barreira** para iniciar uma negociação. Se o orçamento for aprovado, o cadastro é concluído por você ou por outro setor.</p></div></article>`.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
   + `<h2 class="gh">Depois do primeiro contato, escolha o tipo de contrato</h2>` + comTiles(); };
 const comTiles = () => `<ul class="tiles cards">${COMERCIAL.map(x => { const ok = !!ROTINAS[x.id]; return `<li><div class="mcard ${ok ? '' : 'prep'}" style="--c:${COMCOR[x.id]}"><a class="tl" href="#/areas/comercial/${x.id}"><span class="mn">Rotina</span><h3>${x.t}</h3><p>${x.d}</p></a>${ok ? '' : '<span class="bd">Em preparação</span>'}</div></li>`; }).join('')}</ul>`;
@@ -1041,7 +1042,7 @@ function block(b) {
   if (b.flow) h += `<ol class="flow">${b.flow.map((x, i) => `<li class="${b.hi === i ? 'hi' : ''}"><span>${x}</span></li>`).join('')}</ol>`;
   if (b.chips) h += `<ul class="chips">${b.chips.map((x, i) => `<li class="${i ? '' : 'hi'}">${x}</li>`).join('')}</ul>`;
   if (b.lead) h += `<p class="lead">${b.lead}</p>`;
-  if (b.callout) h += `<div class="callout">${b.callout.map(p => `<p>${p}</p>`).join('')}</div>`;
+  if (b.callout) h += `<div class="callout">${b.callout.map(p => `<p>${fmt(p)}</p>`).join('')}</div>`;
   if (b.details) h += `<dl class="details">${b.details.map(d => `<div><dt>${d[0]}</dt><dd>${d[1]}</dd></div>`).join('')}</dl>`;
   if (b.rules) h += `<ul class="rules">${li(b.rules)}</ul>`;
   if (b.cols) h += `<div class="cols">${b.cols.map(c => `<div><h4>${c.h}${c.badge ? `<span class="badge">${c.badge}</span>` : ''}</h4><ul class="rules">${li(c.items)}</ul></div>`).join('')}</div>`;
@@ -1055,7 +1056,7 @@ function guide(g, id) {
   }).join('');
   const terms = g.terms ? `<dl class="terms">${g.terms.map(t => `<div><dt>${t[0]}</dt><dd>${t[1]}</dd></div>`).join('')}</dl>` : '';
   const tips = g.tips ? `<div class="tips"><b>Boa prática e pontos de atenção</b><ul>${li(g.tips)}</ul></div>` : '';
-  return `<section class="guide chunk"><h4>${g.t}</h4>${g.obj ? `<p class="obj">${g.obj}</p>` : ''}${terms}<ol class="steps">${steps}</ol>${tips}${g.noShot ? '' : '<div class="shot">Espaço reservado para as telas deste passo a passo</div>'}</section>`;
+  return `<section class="guide chunk"><h4>${g.t}</h4>${g.obj ? `<p class="obj">${g.obj}</p>` : ''}${terms}<ol class="steps">${steps}</ol>${tips}${g.noShot ? '' : g.link ? `<a class="shot" href="${g.link[0]}">${g.link[1]}</a>` : '<div class="shot">Espaço reservado para as telas deste passo a passo</div>'}</section>`;
 }
 function feature(f) {
   const gs = (f.man || []).map(i => guide(MAN[i], `m${i}`)).join('');
