@@ -348,7 +348,7 @@ const MODULES = [
       tips:['**Regionalidade das rotas:** Comercial e Operacional precisam conhecer a regionalidade de cada rota, para designar melhor a programação ao programar dentro do contrato. Uma boa comunicação entre os dois na programação é de extrema importância para evitar retrocesso ao processo.'] }
   ]},
   { id:'operacional', t:'Operacional', cor:'#1B4F72', d:'Análise de O.S., rotas, equipe e acompanhamento do dia.', ent:ent('Operacional'), con:[], faz:[
-    { t:'Ciclo de vida da O.S.', obj:'Entender as seis etapas da ordem de serviço, da geração ao fechamento.', steps:[
+    { t:'Ciclo de vida da O.S.', obj:'Entender as seis etapas da ordem de serviço, da geração ao fechamento.', link:['#/menus/servicos/conhecer','Veja as telas no Manual: Menu › Serviços →'], steps:[
       {t:'Gerar', s:['A O.S. nasce da **Análise de O.S.** ou de forma avulsa.']},
       {t:'Conferir', s:['Confira data, rota, motorista, veículo e totais.']},
       {t:'Distribuir', s:['Imprima a O.S. e delegue à equipe.']},
@@ -356,7 +356,7 @@ const MODULES = [
       {t:'Registrar', s:['Aponte o que foi realizado ou não, horários e quilometragem.']},
       {t:'Fechar', s:['O gestor finaliza a O.S. Só a O.S. finalizada libera o faturamento.']}],
       tips:['Gerar > Conferir > Distribuir > Executar > Registrar > Fechar.','**Regionalidade das rotas:** Comercial e Operacional precisam conhecer a regionalidade de cada rota, para designar melhor a programação ao programar dentro do contrato. Uma boa comunicação entre os dois na programação é de extrema importância para evitar retrocesso ao processo.'] },
-    { t:'Rotina do gestor da operação', obj:'O gestor da operação planeja, distribui, acompanha e finaliza.', steps:[
+    { t:'Rotina do gestor da operação', obj:'O gestor da operação planeja, distribui, acompanha e finaliza.', link:['#/menus/servicos/conhecer','Veja as telas no Manual: Menu › Serviços →'], steps:[
       {t:'Análise de O.S.', s:['Acesse **Home → Serviço → Análise de OS**.','Informe a data, escolha a rota correspondente e pesquise para visualizar a demanda de serviços.']},
       {t:'Gerar rota pela análise', s:['Após a análise, clique em **Gerar** para editar.','Na aba **Dados da ordem de serviço** e depois **Ordens de Serviço Contrato**, clique em **Salvar**.','Para excluir ou adicionar itens, acesse o número da O.S. emitida.']},
       {t:'Gerar rota avulsa', s:['Acesse **Home → Serviço → Ordem de serviço → Novo**.','Nas abas **Dados da ordem de serviço** e **Ordens de Serviço**, informe Contrato, Tipo, Produto e Quantidade e clique em **Incluir**.','Ao concluir todos os itens, clique em **Salvar**.']},
@@ -364,14 +364,14 @@ const MODULES = [
       {t:'Acompanhar a execução', s:['Acesse a O.S. em aberto, na aba **Ordens de Serviço**.','Informe horário de chegada e saída, km e volume (em caso de N.A., deixe zerado).']},
       {t:'Gestão do dia', s:['Ao final do dia, analise o que ficou sem fazer e planeje o encaixe com o Comercial para a próxima data possível.','Altere a programação no contrato.']}],
       tips:['**Regionalidade das rotas:** Comercial e Operacional precisam conhecer a regionalidade de cada rota, para designar melhor a programação ao programar dentro do contrato. Uma boa comunicação entre os dois na programação é de extrema importância para evitar retrocesso ao processo.'] },
-    { t:'Preencher a ordem de serviço', obj:'Registrar os dados da rota, os serviços, as despesas e o checklist da OS.', steps:[
+    { t:'Preencher a ordem de serviço', obj:'Registrar os dados da rota, os serviços, as despesas e o checklist da OS.', link:['#/menus/servicos/conhecer','Veja as telas no Manual: Menu › Serviços →'], steps:[
       {t:'Gerar a OS', s:['Na **Análise de OS**, escolha a **Data**, o **Tipo** e a **Rota** do dia e pesquise.','Clique em **Gerar**, confira os dados e clique em **Confirmar geração da ordem de serviço**.']},
       {t:'Dados da OS', s:['Em **Dados**, confira **Tipo**, **Data de Saída**, **Frota**, **Veículo primário** e **Motorista**.','Informe **Auxiliar**, horários e quilometragem e clique em **Salvar**.']},
       {t:'Serviços da rota', s:['Na aba **Serviços**, lance manualmente algum item de reprogramação, selecione quem sai na rota e mude a ordem dos itens da rota, se precisar.']},
-      {t:'Despesas', s:['Na aba **Despesas**, lance a despesa direto pela O.S.: **Fornecedor**, **Valor total**, forma e condição de pagamento e **Gerar parcelas**.']},
+      {t:'Despesas', s:['Na aba **Despesas**, lance a despesa direto pela O.S.: **Fornecedor**, **Valor total**, forma e condição de pagamento e **Gerar parcelas**.','Esta etapa é uma **melhoria do sistema**. Se ela não faz parte do seu cotidiano, **pule para a etapa 5**.']},
       {t:'Checklist', s:['O **Checklist** será usado pelo APP, mas pode ser preenchido manualmente caso a O.S. manual esteja preenchida também.']},
       {t:'Imprimir', s:['Use **Imprimir** para o impresso da O.S. e **Guia de instalação** ou **Guia de retirada** para imprimir uma via.']}]},
-    { t:'Finalizar a ordem de serviço', obj:'Encerrar a OS depois da execução completa da rota.', steps:[
+    { t:'Finalizar a ordem de serviço', obj:'Encerrar a OS depois da execução completa da rota.', link:['#/menus/servicos/conhecer','Veja as telas no Manual: Menu › Serviços →'], steps:[
       {t:'Conferir o apontamento', s:['Confira se a rota foi concluída e se o apontamento da execução está completo.']},
       {t:'Finalizar', s:['Clique em **Finalizar**. Só use depois que a rota for concluída e o apontamento da execução estiver completo.']}]}
   ]},
@@ -1121,8 +1121,8 @@ const itemBody = (i, layer) => layerHTML(i, layer) || empty;
 const itemFull = i => LAYERS3.map(l => { const h = layerHTML(i, l[0], true); return h ? `<h3 class="lay2">${l[1]}</h3>${h}` : ''; }).join('');
 const guidesOf = id => (MODULES.find(m => m.id === id) || { faz: [] }).faz;
 const opIntro = () => block({ kicker:'Antes de começar', title:'Você e sua equipe são o espelho da empresa lá fora',
-    lead:'O gestor da operação entende que ele, junto com a sua equipe, <b>é o reflexo do espelho da empresa</b> diante do cliente? O que o cliente vê está em três coisas: <b>comportamento</b>, <b>execução</b> e <b>recusa</b>.',
-    callout:['Hoje esse direcionamento chega a você dentro da **O.S.**: **o que fazer**, **quando fazer**, **para quem fazer**, **o que será entregue** (serviço ou equipamento) e a **quantidade**.','Com isso em mãos, você **direciona**, **acompanha** e **finaliza**.'] })
+    lead:'O gestor da operação entende que ele, junto com a sua equipe, <b>é o reflexo do espelho da empresa</b> diante do cliente? Pense em três coisas: <b>comportamento</b>, <b>execução</b> e <b>recusa</b>.',
+    callout:['Hoje esse direcionamento chega a você dentro da **O.S.**: **o que fazer**, **quando fazer**, **para quem fazer**, **o que será entregue** (serviço ou equipamento) e a **quantidade**.','Com isso em mãos, você **direciona**, **acompanha** e **finaliza**.','O **comportamento** da equipe lá fora depende de uma boa orientação de como fazer, para **executar com excelência** o que foi vendido e **recusar** qualquer situação atípica ao que foi designado a fazer.'] })
   + block({ kicker:'Na prática', title:'Como isso funciona dentro do sistema',
     flow:['Recebe a programação na sua área','Analisa pela Análise de O.S.','Gera a rota','A equipe executa (ou não)','Você alimenta o sistema'],
     lead:'Quem foi designado como responsável <b>alimenta o sistema</b> informando <b>o que foi feito</b>, <b>o que não foi feito</b> e <b>por quê</b>.',
@@ -1130,7 +1130,21 @@ const opIntro = () => block({ kicker:'Antes de começar', title:'Você e sua equ
   + block({ kicker:'Dois tipos de cliente', title:'Cliente externo e cliente interno',
     cols:[{h:'Cliente externo',items:['É para quem vendemos o nosso serviço.']},{h:'Cliente interno',items:['É um departamento servindo o outro.','Se um falha, o outro fica insatisfeito.']}],
     callout:['Isso reflete no principal objetivo da empresa: **faturar para sustentar**.','Deixar o **cliente interno** satisfeito é tão importante quanto deixar o **cliente externo** satisfeito.'] });
-const areaBody = x => x.id === 'comercial' ? comHub() : (x.id === 'operacional' ? opIntro() : '') + guidesOf(x.id).map((g, i) => guide(g, `${x.id}g${i}`)).join('') || empty;
+const opClose = () => block({ kicker:'Para fechar', title:'O dia só termina quando o sistema reflete a rua',
+    callout:['Só a **O.S. finalizada** libera o faturamento. Por isso, feche o dia: o que foi feito, o que não foi feito e **por quê**.','O acompanhamento do dia a dia é **importantíssimo**: com a medição gerada, o Operacional não consegue finalizar O.S. nem gerar com data retroativa, e com O.S. aberta não é possível gerar a medição.'] })
+  + block({ kicker:'Quando algo ficou sem fazer', title:'Para onde vai o que não foi feito',
+    cols:[
+      { h:'Precisa conversar com o cliente', items:['Volta para o **Comercial**, que fala com o cliente e, se for o caso, revê a negociação.'] },
+      { h:'É só reajuste logístico', items:['Reprograme o encaixe na **próxima data possível**. Há duas formas:','**Pelo sistema:** peça ao Comercial para reprogramar na aba **Programação**, por **data específica**, para não repetir em dias fora do programado original.','**Manual:** você, gestor, anota o que não foi feito e lança manualmente.'] }],
+    quote:'<b>Reprogramar pelo sistema</b> tem menos risco de esquecer. <b>Lançar manual</b> tem risco grande de cair no esquecimento e gerar reclamação futura do cliente.' })
+  + block({ kicker:'Importante', title:'Comunicação também é atendimento',
+    callout:['A comunicação com o cliente, principalmente **quando não fizer**, faz toda a diferença: o cliente se sente assistido não só na execução, mas também quando algo não sai como planejado.'] })
+  + block({ kicker:'Em campo', title:'Quando o cliente pede algo na hora',
+    cols:[
+      { h:'1. Demanda do cliente', items:['Fale com o **gestor antes de fazer**.','O gestor fala com o **Comercial** para saber se cabe no escopo do contrato.','Se for algo fora, o Comercial revê a negociação e reprograma, se necessário.'] },
+      { h:'2. Antecipar o atendimento', items:['A equipe vai passar ao lado um dia antes da programação e quer antecipar.','Mesma regra: fale com o gestor antes.'] }],
+    quote:'Lembre-se sempre: <b>execução fora do lançamento no sistema não garante cobrança no faturamento</b>. Quem executar é <b>100% responsável</b> por registrar no sistema. Sem registro, a empresa perde dinheiro.' });
+const areaBody = x => x.id === 'comercial' ? comHub() : (x.id === 'operacional' ? opIntro() : '') + guidesOf(x.id).map((g, i) => guide(g, `${x.id}g${i}`)).join('') + (x.id === 'operacional' ? opClose() : '') || empty;
 const hasArea = x => x.id === 'comercial' || guidesOf(x.id).length;
 const FRASE = `<div class="frase"><p>Como a empresa trabalha <strong>É CULTURA INTERNA.</strong></p><p>O <strong>SISTEMA</strong> é o meio pelo qual o registro de formalidade acontece.</p></div>`;
 const areasTiles = () => `<ul class="tiles">${AREAS_LIST.map(x => `<li><a class="tile ${hasArea(x) ? '' : 'prep'}" href="#/areas/${x.id}"><h3>${x.t}</h3><p>${x.d}</p>${hasArea(x) ? '' : '<span class="bd">Em preparação</span>'}</a></li>`).join('')}</ul>`;

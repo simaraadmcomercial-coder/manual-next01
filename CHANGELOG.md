@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.51
+- Operacional: complemento do comportamento (executar com excelência e recusar o atípico); Despesas como melhoria (pular para a etapa 5); atalhos para o Manual (Serviços) nos 4 guias.
+- Operacional: fechamento em 4 blocos (O dia só termina..., o que ficou sem fazer, comunicação é atendimento, demandas em campo e registro no sistema).
+
 ## v2.50
 - Higienização do evento (inclusa no pacote; programar é importantíssimo); regra da Medição nos contratos e no aditivo; contrato de evento: financeiro obrigatório com os 3 modos de geração e regra de substituição/duplicidade.
 - Guia Prático › Operacional: abertura "Você e sua equipe são o espelho da empresa" (comportamento, execução e recusa; O.S.; como funciona no sistema; cliente externo × interno).
