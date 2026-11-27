@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.50
+- Higienização do evento (inclusa no pacote; programar é importantíssimo); regra da Medição nos contratos e no aditivo; contrato de evento: financeiro obrigatório com os 3 modos de geração e regra de substituição/duplicidade.
+- Guia Prático › Operacional: abertura "Você e sua equipe são o espelho da empresa" (comportamento, execução e recusa; O.S.; como funciona no sistema; cliente externo × interno).
+
 ## v2.49
 - Encerramento: passo "Como inativar" (acessar o contrato e clicar no botão vermelho Inativar).
 - Contrato de evento: rotina própria, sem obra — Orçamento de evento (Dados do evento, Cadastrar evento, montagem e desmontagem), Contrato de evento (Dados do evento, aba Empenho, Transporte com janela ou específico, Programação, Financeiro) e Assinatura e guias.
