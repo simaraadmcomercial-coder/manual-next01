@@ -1,5 +1,10 @@
 # Versões do Manual Next01
 
+## v2.53
+- Consulta de O.S. em aberto antes de faturar (Menu › Serviços › Ordem de serviço, período + status Aberto): Guia Prático (Conferir contratos, Faturar pela Análise, fechamento) e Manual (Contratos para faturamento, Análise de faturamento e Serviços › Ordem de serviço: pesquisa).
+- Faturamento: Encerrar e inativar mais enxuto (atuação do Faturamento) e observação do Comercial no evento antecipado; guia de cadastros fiscais removido, com observação sobre impostos; Dia de fechamento 0 (só para contrato que nunca aparece no faturamento, como doação); pendência de instalação: avisar o Comercial; medição sem a condição "quando o cliente exige"; atalhos para o Manual em todos os guias.
+- Faturamento: bloco "Responsabilidade do Faturamento" (acompanhar medição/nota/documentos, garantir envios e confirmações, cobrança de vencidos definida pela empresa).
+
 ## v2.52
 - Operacional: lembrete final (quem autorizar a execução garante o registro; o sistema não rastreia serviço fora do programado).
 - Guia Prático › Faturamento redesenhado em ordem de rotina: abertura com o fluxo, Conferir contratos para faturar, Gerar a medição, Faturar pela Análise, Emitir o boleto, notas avulsas, NF-e, Encerrar/inativar, cadastros fiscais, e fechamento (quando algo não aparece para faturar).
