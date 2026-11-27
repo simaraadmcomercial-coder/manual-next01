@@ -1,5 +1,16 @@
 # Versões do Manual Next01
 
+## v2.42
+- Gestão de medições: o cliente aprova ou recusa pelo link; envio manual ou sem resposta libera manualmente (Mais opções › Liberar para faturamento). Aprovação automática em 2 dias marcada como em preparação (Manual e Guia Prático). Manual, Guia Prático e slide.
+
+## v2.41
+- Conta: Trocar empresa e Sair juntos em um quadro (trocar empresa sem novo login; sair encerra a sessão).
+- Menu: removido "Abra chamados"; a orientação de como abrir um chamado passou para a página Contatos (e o PDF).
+- Rota: dicas reescritas (usada para programar todos os serviços; nomenclatura de fácil entendimento de todo o grupo).
+- Rota: removida a nota de rascunho (Finaliza instalação ligada nas rotas comuns e desligada só nas feiras livres, confirmado).
+- Regionalidade das rotas: texto ajustado (evitar retrocesso ao processo) em todos os lugares.
+- Frota: texto da Rota corrigido (usada no contrato para programar todos os serviços a serem realizados). Veículo: removida a nota de rascunho e incluída a boa prática de preencher os dados (O.S. e consulta rápida).
+
 ## v2.40
 - Frota completa: Tipo de veículo, Veículo e Rota com telas, pins e passo a passo (Finaliza instalação, feiras livres).
 - Regionalidade das rotas (Comercial e Operacional): observação no Guia Prático (Comercial e Operacional), na Apresentação e na Rota.
