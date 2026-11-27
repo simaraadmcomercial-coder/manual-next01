@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.46
+- Rotinas Mensal e Evento: observação de pós-venda no final (o Comercial segue acompanhando o cliente).
+- Aditivos Contratuais: primeira versão da rotina (quando usar, passo a passo, novo contrato x aditivo; impressão do aditivo e do Termo de rescisão do contrato anterior; seções Cuidados e O que acontece depois).
+
 ## v2.45 — Guia Prático (Comercial em andamento)
 - Contrato mensal: Pedido ao lado do Tipo; abas Dados da obra e Observações (três campos explicados); Programação sem sugestão de produtos (digitar); Modo de geração "Tudo na nota fiscal"; Dia de fechamento reforçado como data base do início do faturamento.
 - "Assinatura e guias": relatório de escala virou sugestão opcional; sem integração com plataforma de assinatura (ou PDF manual); guias vão para a equipe e, com o APP, a confirmação será online; link para as telas no Manual.

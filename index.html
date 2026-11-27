@@ -975,7 +975,7 @@ const ROTINAS = {
   { g:true },
   { l:['O contrato nasce do orçamento. Se o orçamento ainda não foi gerado, volte e faça o orçamento primeiro.','Contratos mensais: defina o **dia de faturamento** (campo **Dia de fechamento**). Cliente padrão: **1** (faturamento de 01 a 30 ou 31). Outro período: o **primeiro dia do período**; por exemplo, de 16 a 15, usa-se **16**.','Pagamento antecipado: mesma lógica, mas a cobrança é futura. Crie um **lembrete na agenda de renovação** antes de faturar, para falar com o cliente.','Assinatura digital: e-mail do cliente, do responsável da empresa e de duas testemunhas.'] },
   { l:['Confira itens, valores, datas e local antes de salvar.','A programação é a base da Análise de O.S.: uma data errada desloca toda a operação.','**Regionalidade das rotas:** Comercial e Operacional precisam conhecer a regionalidade de cada rota, para designar melhor a programação ao programar dentro do contrato. Uma boa comunicação entre os dois na programação é de extrema importância para evitar retrocesso ao processo.'] },
-  { l:['A programação alimenta a **Análise de O.S.** do Operacional.','As guias de entrega e retirada vão para a equipe, para acompanhamento. Quando o **APP** estiver liberado, a confirmação será online.','O faturamento segue o dia definido no contrato, na Análise de faturamento.'] }
+  { l:['A programação alimenta a **Análise de O.S.** do Operacional.','As guias de entrega e retirada vão para a equipe, para acompanhamento. Quando o **APP** estiver liberado, a confirmação será online.','**A rotina do Comercial não acaba quando a guia vai para o Operacional.** Continue acompanhando o cliente (pós-venda): a entrega foi feita como combinado? As higienizações estão acontecendo como solicitado? O status do contrato mudou de **Aguardando** para **Vigente**? Se não mudou, verifique onde é preciso agir.','O faturamento segue o dia definido no contrato, na Análise de faturamento.'] }
  ]},
  evento: { s: [
   { p:['É o contrato de prestação de serviços **para eventos**, com datas de entrega e retirada definidas. Reúne produtos e serviços, transporte, programação e condições de pagamento.'] },
@@ -984,8 +984,22 @@ const ROTINAS = {
   { g:true },
   { l:['O contrato nasce do orçamento. Se o orçamento ainda não foi gerado, volte e faça o orçamento primeiro.','Eventos particulares: insira o **financeiro** quando não houver nota.','Assinatura digital: e-mail do cliente, do responsável da empresa e de duas testemunhas.'] },
   { l:['Confira itens, valores, datas e local antes de salvar.','A programação é a base da Análise de O.S.: uma data errada desloca toda a operação.','**Regionalidade das rotas:** Comercial e Operacional precisam conhecer a regionalidade de cada rota, para designar melhor a programação ao programar dentro do contrato. Uma boa comunicação entre os dois na programação é de extrema importância para evitar retrocesso ao processo.'] },
-  { l:['A programação alimenta a **Análise de O.S.** do Operacional.','As guias de entrega e retirada vão para a equipe, para acompanhamento. Quando o **APP** estiver liberado, a confirmação será online.'] }
+  { l:['A programação alimenta a **Análise de O.S.** do Operacional.','As guias de entrega e retirada vão para a equipe, para acompanhamento. Quando o **APP** estiver liberado, a confirmação será online.','**A rotina do Comercial não acaba quando a guia vai para o Operacional.** Continue acompanhando o cliente (pós-venda): a entrega foi feita como combinado? As higienizações estão acontecendo como solicitado? O status do contrato mudou de **Aguardando** para **Vigente**? Se não mudou, verifique onde é preciso agir.'] }
  ]} ,
+ aditivos: { s: [
+  { p:['O **aditivo** é a alteração de um contrato que já existe. Ele é usado para renovação, troca de produtos, alteração de valores, mudança do local de endereço, reajuste anual e retirada parcial.'] },
+  { p:['Formalizar a mudança no próprio contrato, sem precisar começar tudo de novo. O aditivo nasce com o número do contrato seguido de **-A1** (por exemplo, 71967-A1).'] },
+  { l:['**Motivo do aditivo:** preenchido ao gerar o aditivo.','**Solicitação de retirada:** na aba **Transporte** do contrato, antes de gerar o aditivo.','Depois, todos os campos importantes que já vimos ao fazer o contrato (produtos e valores, transporte e endereço, programação e financeiro), conforme o que precisa mudar.'] },
+  { gs:[{ t:'Aditivo de contrato', obj:'Alterar um contrato já existente.', link:['#/menus/contrato/conhecer','Veja as telas no Manual: Menu › Contrato › Contratos →'], steps:[
+      {t:'Por onde começar', s:['O passo a passo é exatamente o do contrato que desenhamos. A diferença está no começo: entre no **contrato que deve ser aditado**, em **Menu › Contrato › Contratos**.']},
+      {t:'Solicitação de retirada e aditivo', s:['Vá à aba **Transporte** e preencha a **Solicitação de retirada** > clique em **Aditivo**, na barra superior > na tela que abrir, preencha o **Motivo do aditivo** > e clique em **Salvar**. Vai aparecer uma faixa verde: **"Aditivo Nº 71967-A1 gerado com sucesso!"**']},
+      {t:'Fazer as alterações', s:['Com o aditivo gerado, conclua o que precisa ser alterado nele. Lembre-se de todos os campos importantes que já vimos quando fazemos o contrato: produtos e valores, transporte e endereço, programação e financeiro.']},
+      {t:'Confirmar e imprimir', s:['Feito isso, clique em **Confirmar** e entre no aditivo para imprimir. Para achar os dois, pesquise pelo **número principal inteiro do contrato**, sem o **-A1**: o sistema traz o contrato e o aditivo. Será preciso entrar nos dois: no **novo aditivo**, imprima o contrato do aditivo; no **contrato anterior**, vá em **Mais opções** e imprima o **Termo de rescisão de contrato**.']}],
+      tips:['Quando for preciso fazer **mais entregas no mesmo local** onde já existe equipamento, faça um **novo contrato**, e não um aditivo: a nova solicitação é um processo novo de contratação.'] }] },
+  { l:['Aditivo serve para alterações de valores e condições: renovação, troca de produtos, local de endereço, reajuste anual e retirada parcial.','Mais entregas no mesmo local onde já existe equipamento: **novo contrato**.'] },
+  { l:['Antes de aditar, confira se não é o caso de **novo contrato** (mais entregas no mesmo local).','Preencha a **Solicitação de retirada** na aba **Transporte** antes de clicar em **Aditivo**.','Ao pesquisar, use o número principal do contrato, sem o **-A1**, para trazer o contrato e o aditivo.','Imprima os dois documentos: o contrato do **aditivo** e o **Termo de rescisão** do contrato anterior.'] },
+  { l:['Se a alteração mudar datas, local ou itens, avise o **Operacional**, pois a programação muda e a boa comunicação entre os dois evita retrocesso ao processo.','**A rotina do Comercial não acaba com o aditivo:** continue acompanhando o cliente (pós-venda) e o status do contrato.'] }
+ ]},
  encerramento: { s: [
   { p:['**Encerrar** e **Inativar** são etapas diferentes.','**Encerrar** registra a conclusão ou a solicitação de encerramento do contrato, conforme a modalidade. **Inativar** retira o contrato da rotina de faturamento, depois do último faturamento.'] },
   { p:['Fechar o contrato sem deixar pendente a operação nem o faturamento.','O encerramento registra a solicitação; a retirada efetiva acontece pela Ordem de Serviço; a inativação vem por último, quando tudo foi faturado.'] },
@@ -999,6 +1013,7 @@ const ROTINAS = {
 const SEC7 = ['O que é','Qual a finalidade dentro do processo','Quais informações preencher','Como realizar','Regras e possibilidades','Cuidados','O que acontece depois'];
 const secHTML = (r, id, n) => { const c = r.s[n]; let h = '';
   if (!c) h = '<p class="ph">Em preparação. Conteúdo a detalhar.</p>';
+  else if (c.gs) h = c.gs.map((g, i) => guide(g, `${id}x${i}`)).join('');
   else if (c.g) h = comGuides().map((g, i) => guide(g, `${id}g${i}`)).join('');
   else h = (c.p || []).map(p => `<p>${fmt(p)}</p>`).join('') + (c.l ? `<ul class="rules">${li(c.l)}</ul>` : '');
   return `<section class="sec7 chunk"><h3><span class="sn">${n + 1}</span>${SEC7[n]}</h3>${h}</section>`; };
