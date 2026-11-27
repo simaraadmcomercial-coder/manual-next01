@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.48
+- Encerramento: faturamento antecipado = Comercial encerra e inativa; pós-evento = Faturamento encerra (checkbox) e inativa. Retiradas as frases de duplicidade financeira desta rotina.
+- Duplicidade financeira: observação no Contrato (aba Financeiro) e em Financeiro › Contas a receber.
+
 ## v2.47
 - Aditivos: motivo da Solicitação de retirada (o faturamento se divide: contrato anterior até a data da solicitação e vida nova no novo contrato).
 - Encerramento de Contratos: eventos com data prevista de retirada preenchida; locações mensais com Solicitação de retirada em branco; lógica da rotina (contrato > programação > O.S. > faturamento).
