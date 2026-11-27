@@ -1,5 +1,9 @@
 # Versões do Manual Next01
 
+## v2.47
+- Aditivos: motivo da Solicitação de retirada (o faturamento se divide: contrato anterior até a data da solicitação e vida nova no novo contrato).
+- Encerramento de Contratos: eventos com data prevista de retirada preenchida; locações mensais com Solicitação de retirada em branco; lógica da rotina (contrato > programação > O.S. > faturamento).
+
 ## v2.46
 - Rotinas Mensal e Evento: observação de pós-venda no final (o Comercial segue acompanhando o cliente).
 - Aditivos Contratuais: primeira versão da rotina (quando usar, passo a passo, novo contrato x aditivo; impressão do aditivo e do Termo de rescisão do contrato anterior; seções Cuidados e O que acontece depois).
