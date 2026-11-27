@@ -1,5 +1,8 @@
 # Versões do Manual Next01
 
+## v2.43
+- Removidas as notas azuis de rascunho (avisos internos) das caixinhas; a lista do que falta validar fica na conversa.
+
 ## v2.42
 - Gestão de medições: o cliente aprova ou recusa pelo link; envio manual ou sem resposta libera manualmente (Mais opções › Liberar para faturamento). Aprovação automática em 2 dias marcada como em preparação (Manual e Guia Prático). Manual, Guia Prático e slide.
 
